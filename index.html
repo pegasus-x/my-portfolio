@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Pegasus</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="icon" href="images/dev-icon-removebg-preview.png" type="image/x-icon" alt="Favicon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="description" content="Portfolio of Rati Ranjan, MCA student specializing in Web Development, UI/UX Design, and software engineering.">
+  <meta name="keywords" content="Rati Ranjan, Pegasus, Portfolio, Web Developer, UI/UX, MCA, KIIT University">
+  <meta name="author" content="Rati Ranjan">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+  <!-- AOS Library for Scroll Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body id="pageBody" class="overflow-x-hidden " style="font-family: 'Outfit', sans-serif;">
+  <!-- <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] ">
+         <img src="images/header-bg-color.png" alt="Background" class="w-full">
+         </div> -->
+  <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+    <!-- Name Heading -->
+    <h1 class="text-2xl md:text-4xl font-bold text-black-200">Rati Ranjan 👋</h1>
+    <!-- <img src="images/rati.jpg" alt="Pegasus X" class="w-28 cursor-pointer mr-14"> -->
+    <ul id="navLinks" class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent">
+      <li>
+        <a href="#top">Home</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#services">Services</a>
+      </li>
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+    <div class="flex items-center gap-4">
+      <button id="themeToggle">
+        <img src="images/moon_icon.png" id="themeIcon" alt="Moon Icon" class="w-6">
+      </button>
+      <a href="#contact" class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 dark:border">Contact Me</a>
+      </a>
+      <button class="block md:hidden ml-3" onclick="openMenu()">
+        <!-- Menu Icon -->
+        <img src="images/menu-black.png" alt="Menu" class="w-6 ">
+        <img src="images/menu-white.png" alt="Menu" class="w-6" style="display:none;">
+      </button>
+    </div>
+    <!-- mobile menu -->
+    <ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition-duration-500 dark:bg-[#2a004a] dark:text-white">
+      <div class="absolute right-6 top-6" onclick="closeMenu()">
+        <img src="images/close-black.png" alt="Close Menu" class="w-5 cursor-pointer dark:hidden">
+        <img src="images/close-white.png" alt="Close Menu" class="w-5 cursor-pointer hidden dark:block">
+      </div>
+      <li>
+        <a href="#top" onclick="closeMenu()">Home</a>
+      </li>
+      <li>
+        <a href="#about" onclick="closeMenu()">About</a>
+      </li>
+      <li>
+        <a href="#services" onclick="closeMenu()">Services</a>
+      </li>
+      <li>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+      </li>
+      <li>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- -----header  ----- -->
+  <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4" data-aos="fade-up">
+    <!-- Main Content -->
+    <main class="text-center flex flex-col items-center gap-6">
+      <!-- Profile Picture -->
+      <div class="w-36 h-36 md:w-40 md:h-40">
+        <img src="images/rati.jpg" alt="Profile Picture of Rati Ranjan" class="w-full h-full rounded-full object-cover border-4 border-violet-400 profile-glow" onerror="this.onerror=null;this.src='images/rati.jpg';">
+      </div>
+      <!-- Name Heading -->
+      <h1 class="text-3xl md:text-4xl font-bold text-black-200">
+        Hi! I'm Rati Ranjan👋
+      </h1>
+      <!-- Typing Animation Container -->
+      <div class="typing-container text-4xl md:text-5xl font-bold text-violet-300">
+        <span id="typing-animation"></span>
+      </div>
+    </main>
+    <!-- <img src="images/rati.jpg" alt="Header Image" class="rounded-full w-32">
+            <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3" style="font-family: 'Ovo', serif;">Hi! I'm Rati Ranjan <img src="images/hand-icon.png" alt="Wave" class="w-6">
+            </h3> -->
+    <h1 class="text-lg sm:text-2xl lg:text-[-65px]">Currently pursuing MCA at KIIT University, I specialize in MERN stack and PHP development — building scalable web applications that blend performance, creativity, and seamless user experience.</h1>
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+      <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"> contact me <img src="images/right-arrow-white.png" alt="Contact Icon" class="w-4">
+      </a>
+      <a href="Rati-resume.pdf" target="_blank" class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white" style="color: black;"> my resume <img src="images/download-icon.png" alt="Contact Icon" class="w-4">
+      </a>
+    </div>
+  </div>
+  <!-- About section -->
+  <div id="about" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-down">
+    <h4 class="text-center mb-2 text-lg"> Introduction </h4>
+    <h2 class="text-center text-5xl"> About Me </h2>
+    <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+      <div class="max-w-max mx-auto relative">
+        <img src="images/rati.jpg" alt="User Image" class="w-64 sm:w-80 rounded-3xl max-w-none">
+        <div class="bg-white w-30 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center">
+          <img src="images/circular-text.png" alt="Rotate Icon" class="w-full animate-[spin_6s_linear_infinite]">
+          <img src="images/dev-icon.png" alt="Dev Icon" class="w-14 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="mb-10 max-w-2xl">I'm an enthusiastic MCA student at KIIT University, learning web development and software engineering. Drawing upon a solid background in programming languages and frameworks, I am committed to utilizing my skills to develop novel solutions that improve
+          user experiences.
+          <br>
+          <br> My interest enjoy creating websites that looks good on all devices, trying and testing new technologies, and using code to solve real-life problems. I like working with others, constantly learning and deliver challenging projects. Outside of
+          coding I enjoy reading tech blogs, taking part in hackathons, and being able to contribute to open-source projects.
+        </p>
+        <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl">
+          <li class="border border-gray-400 rounded-xl p-6 cursor-pointer 
+                     hover:bg-[#fcf4ff] hover:-translate-y-1 hover:shadow-[4px_4px_0_#000] 
+                     transition-all duration-500 ease-in-out">
+            <!-- Light / Dark Icons - Code Icon -->
+            <img id="codeIcon" src="images/code-icon.png" alt="Code Dark Icon" class="w-7 mt-3">
+            <!-- Title -->
+            <h3 class="my-4 font-semibold text-gray">Skills</h3>
+            <!-- Minimal Professional Skill Pills with Icons -->
+            <div class="flex flex-wrap gap-2">
+              <!-- HTML -->
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                HTML
+              </span>
+              <!-- CSS -->
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                Tailwind CSS
+              </span>
+              <!-- Python -->
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                Python
+              </span>
+              <!-- JavaScript -->
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                JavaScript
+              </span>
+              <!-- React -->
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                React.js
+              </span>
+              <!-- SQL -->
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                SQL
+              </span>
+            </div>
+          <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+            <img id="eduIcon" src="images/edu-icon.png" alt="Edu Icon" class="w-7 mt-3">
+            <h3 class="my-4 font-semibold text-gray-700">Education</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                <span>MCA | KIIT University</span>
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                <span>BSc ITM | Utkal University</span>
+              </span>
+            </div>
+          </li>
+          <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+            <img id="projectIcon" src="images/project-icon.png" alt="Project Icon" class="w-7 mt-3">
+            <h3 class="my-4 font-semibold text-gray-700">Projects</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                Real Time Chat Application
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                Charitable Trust Platform
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-lg 
+                           bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200
+                           transition-all duration-300 ease-in-out 
+                           hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 shadow-sm">
+                Personal Portfolio Website
+              </span>
+            </div>
+          </li>
+        </ul>
+        <h4 class="my-6 text-gray-700">Technologies i use :</h4>
+        <ul class="flex items-center gap-3 sm:gap-5 flex-wrap">
+          <!-- VS Code -->
+          <li class="relative group flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="images/vscode.png" alt="Vscode Icon" class="w-5 sm:w-7">
+            <!-- Tooltip -->
+            <span class="absolute top-full left-1/2 -translate-x-1/2 mt-5 px-2 py-1 text-xs rounded-md bg-blue-600 text-white opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-[-2px] transition-all duration-300">
+              VSCode
+              <!-- Arrow -->
+              <span class="absolute left-1/2 bottom-full -translate-x-1/2 w-2 h-2 bg-blue-600 rotate-45"></span>
+            </span>
+          </li>
+          <!-- MongoDB -->
+          <li class="relative group flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="images/mongodb.png" alt="MongoDB Icon" class="w-5 sm:w-7">
+            <span class="absolute top-full left-1/2 -translate-x-1/2 mt-5 px-2 py-1 text-xs rounded-md bg-green-600 text-white opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-[-2px] transition-all duration-300">
+              MongoDB
+              <span class="absolute left-1/2 bottom-full -translate-x-1/2 w-2 h-2 bg-green-600 rotate-45"></span>
+            </span>
+          </li>
+          <!-- Figma -->
+          <li class="relative group flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="images/figma.png" alt="Figma Icon" class="w-5 sm:w-7">
+            <span class="absolute top-full left-1/2 -translate-x-1/2 mt-5 px-2 py-1 text-xs rounded-md bg-pink-500 text-white opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-[-2px] transition-all duration-300">
+              Figma
+              <span class="absolute left-1/2 bottom-full -translate-x-1/2 w-2 h-2 bg-pink-500 rotate-45"></span>
+            </span>
+          </li>
+          <!-- GitHub -->
+          <li class="relative group flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="images/github.webp" alt="GitHub Icon" class="w-5 sm:w-7">
+            <span class="absolute top-full left-1/2 -translate-x-1/2 mt-5 px-2 py-1 text-xs rounded-md bg-gray-900 text-white opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-[-2px] transition-all duration-300">
+              GitHub
+              <span class="absolute left-1/2 bottom-full -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
+            </span>
+          </li>
+          <!-- Vercel -->
+          <li class="relative group flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="images/vercel.png" alt="Vercel Icon" class="w-5 sm:w-7">
+            <span class="absolute top-full left-1/2 -translate-x-1/2 mt-5 px-2 py-1 text-xs rounded-md bg-black text-white opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-[-2px] transition-all duration-300">
+              Vercel
+              <span class="absolute left-1/2 bottom-full -translate-x-1/2 w-2 h-2 bg-black rotate-45"></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Services -->
+  <div id="services" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="zoom-in">
+    <h4 class="text-center mb-2 text-lg"> What I offer </h4>
+    <h2 class="text-center text-5xl"> Services </h2>
+    <p class="text-center max-w-2xl mx-auto mt-5 mb-12">I create websites, design user interfaces, build mobile apps, and design graphics.</p>
+    <div class="grid grid-cols-4 gap-6 my-10" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+      <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+        <img src="images/web-icon.png" alt="Web Development Icon" class="w-10">
+        <h3 class="text-lg my-4 text-gray-700">Web Development</h3>
+        <p class="text-sm text-gray-600 leading-5">Web Development is the process of building and maintaining websites. It involves various aspects such as web design, web programming, and database management.</p>
+      </div>
+      <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+        <img src="images/ui-icon.png" alt="UI/UX Design Icon" class="w-10">
+        <h3 class="text-lg my-4 text-gray-700">UI/UX Design</h3>
+        <p class="text-sm text-gray-600 leading-5">UI/UX Design is the process of enhancing user satisfaction by improving the usability, accessibility, and pleasure provided in the interaction between the user and the product.</p>
+      </div>
+      <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+        <img src="images/mobile-icon.png" alt="Mobile Development Icon" class="w-10">
+        <h3 class="text-lg my-4 text-gray-700">Mobile Development</h3>
+        <p class="text-sm text-gray-600 leading-5">Mobile Development is the process of creating software applications that run on mobile devices. It involves various stages such as planning, design, development, testing, and deployment.</p>
+      </div>
+      <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+        <img src="images/graphics-icon.png" alt="Graphics Design Icon" class="w-10">
+        <h3 class="text-lg my-4 text-gray-700">Graphics Design</h3>
+        <p class="text-sm text-gray-600 leading-5">Graphics Design is the process of creating visual content to communicate messages. It involves the use of typography, imagery, color, and layout to create visually appealing designs.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Projects -->
+  <div id="projects" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-down">
+    <h4 class="text-center mb-2 text-lg">Projects </h4>
+    <h2 class="text-center text-5xl"> My latest work</h2>
+    <p class="text-center max-w-2xl mx-auto mt-5 mb-12">Welcome to my projects section! Here you can find a selection of my latest work, showcasing my skills and expertise in web development and design.</p>
+    <div class="grid grid-cols-4 my-10 gap-5" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+      <div class="aspect-square bg-[url('images/chatapp.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+        <a href="https://pegasuschatapp.online/" target="_blank">
+          <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between group-hover:opacity-100 transition-opacity duration-500">
+            <div>
+              <h2 class="font-semibold">SyncTalk ChatApp</h2>
+              <p class="text-sm text-gray-700">Web Development</p>
+            </div>
+            <div class="border rounded-full border-black w-10 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+              <a href="https://pegasuschatapp.online/" target="_blank">
+                <img src="images/send-icon.png" alt="Send Icon" class="w-5">
+              </a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="aspect-square bg-[url(images/weather-dashboard.png)] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+        <a href="https://pegasus-x-weatherck.netlify.app/" target="_blank">
+          <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2  py-3 px-5 flex items-center justify-between group-hover:opacity-100 transition-opacity duration-500">
+            <div>
+              <h2 class="font-semibold">Weather Dashboard</h2>
+              <p class="text-sm text-gray-700">Web Development</p>
+            </div>
+            <div class="border rounded-full border-black w-10 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+              <a href="https://pegasus-x-weatherck.netlify.app/" target="_blank">
+                <img src="images/send-icon.png" alt="Send Icon" class="w-5">
+              </a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="aspect-square bg-[url(images/ngo.png)] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+        <a href="https://jeevanrekha.org/" target="_blank">
+          <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2  py-3 px-5 flex items-center justify-between group-hover:opacity-100 transition-opacity duration-500">
+            <div>
+              <h2 class="font-semibold">NGO Portal</h2>
+              <p class="text-sm text-gray-700">Web Development</p>
+            </div>
+            <div class="border rounded-full border-black w-10 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+              <a href="https://jeevanrekha.org/" target="_blank">
+                <img src="images/send-icon.png" alt="Send Icon" class="w-5">
+              </a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="aspect-square bg-[url(images/hrsolutions.png)] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+        <a href="https://ahrcindia.com" target="_blank">
+          <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between group-hover:opacity-100 transition-opacity duration-500">
+            <div>
+              <h2 class="font-semibold">HR Solutions WebApp</h2>
+              <p class="text-sm text-gray-700">Web Development</p>
+            </div>
+            <div class="border rounded-full border-black w-10 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+              <a href="https://ahrcindia.com" target="_blank">
+                <img src="images/send-icon.png" alt="Send Icon" class="w-5">
+              </a>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a href="https://github.com/pegasus-x" target="_blank" class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-[#fcf] duration-500">
+      See More Projects on Github
+      <img src="images/right-arrow-bold.png" alt="Arrow Icon" class="w-4">
+    </a>
+  </div>
+  <!-- Contact Section -->
+  <div id="contact" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-up">
+    <h4 class="text-center mb-2 text-lg">Connect with Me</h4>
+    <h2 class="text-center text-5xl">Get in Touch</h2>
+    <p class="text-center max-w-2xl mx-auto mt-5 mb-12">I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</p>
+    <form method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
+      <input type="hidden" name="access_key" value="6471cd51-60c4-4db9-86e1-9b956dd88780">
+      <div class="grid grid-cols-2 gap-6 mt-10 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <input type="text" name="name" placeholder="Your Name" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md placeholder-gray-500 text-gray-900" required>
+        <input type="email" name="email" placeholder="Your Email" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white placeholder-gray-500 text-gray-900" required>
+      </div>
+      <textarea rows="6" name="message" placeholder="Your Message" class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white placeholder-gray-500 text-gray-900" required></textarea>
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      <div class="h-captcha" data-captcha="true"></div>
+      <button class="py-3 px-8 w-max mt-4 flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500">
+        Send Message <img src="images/right-arrow-white.png" alt="Send Icon" class="w-4">
+      </button>
+    </form>
+  </div>
+  <!-- Footer -->
+  <div class="mt-20">
+    <div class="text-center">
+      <h1 class="text-2xl md:text-4xl font-bold text-black-200 mx-auto mb-2">Rati Ranjan 👋</h1>
+      <div class="w-max flex items-center gap-2 mx-auto">
+        <img src="images/mail_icon.png" alt="Footer Text" class="w-6">
+        ratiranjan905@gmail.com
+      </div>
+    </div>
+    <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
+      <p> © 2025 Rati Ranjan. All rights reserved.</p>
+      <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+        <li>
+          <a href="https://github.com/pegasus-x" target="_blank">GitHub</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/rati-ranjan-sendha-710a42260/" target="_blank">LinkedIn</a>
+        </li>
+        <li>
+          <a href="https://instagram.com/_the_pegasus_x_007_" target="_blank">Instagram</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top" class="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-black text-white text-xl shadow-lg hover:bg-gray-800 transition-all hidden animate-bounce">
+    ↑
+  </button>
+  <script src="script.js"></script>
+  <!-- Typed.js library for the animation effect -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <!-- Required only if you are using hCaptcha or Advanced File Upload. -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script>
+    AOS.init({
+      duration: 1200, // smooth animation speed
+      once: true, // animation happens only once
+    });
+  </script>
+</body>
+
+</html>
