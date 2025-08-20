@@ -35,10 +35,11 @@ This portfolio is deployed using **GitHub Pages**.\
 
 ## 🛠️ Technologies Used
 
--   **HTML5**\
--   **CSS3 / TailwindCSS**\
--   **JavaScript (ES6+)**\
+-   **HTML5** 
+-   **CSS3 / TailwindCSS**
+-   **JavaScript (ES6+)** 
 -   **Git & GitHub Pages**
+-   **Vercel**
 
 ------------------------------------------------------------------------
 
