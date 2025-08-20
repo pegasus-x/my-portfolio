@@ -8,10 +8,10 @@ Development, Software Engineering, and MCA academic work**.
 
 ## ✨ Features
 
--   Clean and modern UI\
--   Fully responsive design (works on mobile, tablet, and desktop)\
--   Sections: About, Services, Projects, Contact\
--   Smooth animations and polished interactions\
+-   Clean and modern UI.
+-   Fully responsive design (works on mobile, tablet, and desktop) 
+-   Sections: About, Services, Projects, Contact.
+-   Smooth animations and polished interactions.
 -   Built with **HTML, CSS, JavaScript, and TailwindCSS**
 
 ------------------------------------------------------------------------
