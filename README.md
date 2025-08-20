@@ -29,7 +29,7 @@ Development, Software Engineering, and MCA academic work**.
 ## 🚀 Deployment
 
 This portfolio is deployed using **GitHub Pages**.\
-🔗 [View Live Portfolio](https://pegasus-x.github.io/my-portfolio/)
+🔗 [View Live Portfolio](https://pegasusportfolio.vercel.app/)
 
 ------------------------------------------------------------------------
 
