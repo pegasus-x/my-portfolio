@@ -52,7 +52,7 @@ This portfolio is deployed using **GitHub Pages**.\
 
 ## 📬 Contact
 
-💼 **Portfolio:** <https://pegasus-x.github.io/portfolio/> <br>
+💼 **Portfolio:** <https://pegasusportfolio.vercel.app/> <br>
 📧 **Email:** ratiranjan905@gmail.com  <br>
 🔗 **LinkedIn:**(https://www.linkedin.com/in/rati-ranjan-sendha-710a42260/)  <br>
 💻 **GitHub:** [github.com/pegasus-x](https://github.com/pegasus-x)
