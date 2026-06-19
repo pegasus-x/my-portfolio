@@ -1,62 +1,111 @@
-# 🌐 Pegasus Portfolio
+# 🚀 Pegasus Portfolio V1
 
-Welcome to my personal portfolio website repository! 🚀\
-This project showcases my journey, skills, and projects in **Web
-Development, Software Engineering, and MCA academic work**.
+A modern personal portfolio website showcasing my projects, skills, experience, and development journey as a Full Stack Developer.
 
-------------------------------------------------------------------------
+Built with a focus on performance, responsive design, smooth interactions, and a clean user experience.
+
+## 🌐 Live Demo
+
+**Portfolio:** https://pegasusportfolio.online
+
+## 👨‍💻 About
+
+Pegasus Portfolio V1 serves as my digital portfolio, highlighting:
+
+* Professional journey
+* Technical skills
+* Featured projects
+* Education and milestones
+* Contact information
+
+The portfolio is designed to provide recruiters, developers, and collaborators with a clear overview of my work and interests in full-stack development and AI-powered applications.
+
+---
 
 ## ✨ Features
 
--   Clean and modern UI.
--   Fully responsive design (works on mobile, tablet, and desktop) 
--   Sections: About, Services, Projects, Contact.
--   Smooth animations and polished interactions.
--   Built with **HTML, CSS, JavaScript, and TailwindCSS**
+* Responsive design for desktop, tablet, and mobile devices
+* Light and Dark mode support
+* Interactive animations and transitions
+* Project showcase section
+* Professional journey timeline
+* Contact form powered by EmailJS
+* Modern UI/UX design
+* Optimized performance and accessibility
 
-------------------------------------------------------------------------
+---
 
-## 📂 Project Structure
+## 🛠️ Tech Stack
 
-    src/
-      ├── index.html        # Main HTML file
-      ├── style.css         # Styles
-      ├── script.js         # JavaScript
-      └── assets/           # Images, icons, etc.
+### Frontend
 
-------------------------------------------------------------------------
+* HTML5
+* CSS3
+* JavaScript (ES6)
 
-## 🚀 Deployment
+### Libraries & Tools
 
-This portfolio is deployed using **GitHub Pages**.\
-🔗 [View Live Portfolio](https://pegasusportfolio.vercel.app/)
+* GSAP
+* ScrollTrigger
+* Three.js
+* Lenis
+* EmailJS
 
-------------------------------------------------------------------------
+### Deployment
 
-## 🛠️ Technologies Used
+* Vercel
 
--   **HTML5** 
--   **CSS3 / TailwindCSS**
--   **JavaScript (ES6+)** 
--   **Git & GitHub Pages**
--   **Vercel**
+---
 
-------------------------------------------------------------------------
+## 📂 Featured Projects
 
-## 📸 Preview
+### 🧠 Pegasus AI (Ongoing)
 
-<img width="1897" height="1096" alt="image" src="https://github.com/user-attachments/assets/774daea3-b758-4296-8ba1-e89244b1eb14" />
+A personal AI companion powered by local LLMs, memory systems, emotional intelligence, and future voice capabilities.
 
+### 🦷 DentWise
 
-------------------------------------------------------------------------
+An AI-powered dental assistant platform featuring intelligent appointment booking, voice interactions, and modern healthcare workflows.
+
+### ⚡ AI Site Builder
+
+A full-stack platform that generates responsive websites from user prompts using modern web technologies and AI.
+
+### 💬 SyncTalk
+
+A real-time chat application focused on modern messaging, responsive design, and seamless communication.
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/pegasus-x/my-portfolio.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd my-portfolio
+```
+
+Open `index.html` in your browser or run the project using a local development server.
+
+---
 
 ## 📬 Contact
 
-💼 **Portfolio:** <https://pegasusportfolio.vercel.app/> <br>
-📧 **Email:** ratiranjan905@gmail.com  <br>
-🔗 **LinkedIn:**(https://www.linkedin.com/in/rati-ranjan-sendha-710a42260/)  <br>
-💻 **GitHub:** [github.com/pegasus-x](https://github.com/pegasus-x)
+* Portfolio: https://pegasusportfolio.online
+* GitHub: https://github.com/pegasus-x
+* LinkedIn: https://www.linkedin.com/in/rati-ranjan-sendha-710a42260/
+* Email: ratiranjan905@gmail.com
 
-------------------------------------------------------------------------
+---
 
-⭐ If you like this portfolio, don't forget to **star this repo**!
+## 📄 License
+
+This project is intended for personal portfolio use and learning purposes.
+
+© Rati Ranjan Sendha
