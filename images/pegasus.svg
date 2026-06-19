@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Background Tile Gradient -->
+    <linearGradient id="tile-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12121A" />
+      <stop offset="100%" stop-color="#050508" />
+    </linearGradient>
+
+    <!-- Main SaaS Gradient -->
+    <linearGradient id="pegasus-grand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6C63FF" /> <!-- Indigo -->
+      <stop offset="35%" stop-color="#A78BFA" /> <!-- Violet -->
+      <stop offset="70%" stop-color="#F5A623" /> <!-- Gold -->
+      <stop offset="100%" stop-color="#FF8A00" /> <!-- Neon Orange -->
+    </linearGradient>
+
+    <!-- Drop shadow for depth -->
+    <filter id="logo-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background Solid Tile -->
+  <rect width="100" height="100" rx="24" fill="url(#tile-bg)" />
+  
+  <!-- Subtle Glowing Inner Border -->
+  <rect x="1" y="1" width="98" height="98" rx="23" stroke="url(#pegasus-grand-gradient)" stroke-width="1.5" stroke-opacity="0.3" />
+
+  <!-- Monogram Logo Group -->
+  <g filter="url(#logo-shadow)">
+    <!-- Winged P Monogram -->
+    <path d="M 25,20 
+             H 53 
+             C 69,20 75,31 75,44 
+             C 75,57 69,66 53,66 
+             H 37 
+             V 80 
+             H 25 
+             Z 
+             M 37,32 
+             H 51 
+             C 57,32 61,35 61,44 
+             C 61,53 57,56 51,56 
+             H 37 
+             Z" 
+          fill="url(#pegasus-grand-gradient)" 
+          fill-rule="evenodd" />
+
+    <!-- Negative Space Wing Cuts -->
+    <path d="M 21,35 H 32" stroke="#12121A" stroke-width="3" stroke-linecap="round" />
+    <path d="M 21,48 H 32" stroke="#12121A" stroke-width="3" stroke-linecap="round" />
+    <path d="M 21,61 H 32" stroke="#12121A" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Glowing Core Indicator (Micro Detail) -->
+  <circle cx="75" cy="44" r="3" fill="#FFFFFF" />
+  <circle cx="75" cy="44" r="1.5" fill="#FF8A00" />
+</svg>
