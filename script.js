@@ -52,7 +52,7 @@ themeToggle.addEventListener('click', () => {
 });
 
 // === ULTRA-PREMIUM PRELOADER ===
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo(0, 0);
 
     const preloader = document.getElementById('preloader');
@@ -81,7 +81,7 @@ window.addEventListener('load', () => {
     // Smooth GSAP counter for the percentage
     gsap.to(progress, {
         value: 100,
-        duration: 3.5, // 3.5 seconds total cinematic loading sequence
+        duration: 0.8, // Faster loading sequence
         ease: "power3.inOut",
         onUpdate: () => {
             const current = Math.floor(progress.value);
@@ -101,7 +101,7 @@ window.addEventListener('load', () => {
                 // Preloader slides up out of view
                 gsap.to(preloader, {
                     yPercent: -100,
-                    duration: 1.5,
+                    duration: 0.8,
                     ease: "power4.inOut",
                     onComplete: () => preloader.remove()
                 });
@@ -113,7 +113,7 @@ window.addEventListener('load', () => {
                     duration: 1.5,
                     stagger: 0.1,
                     ease: "power4.out",
-                    delay: 0.6
+                    delay: 0.8
                 });
 
                 gsap.from(".reveal-fade", {
@@ -124,7 +124,7 @@ window.addEventListener('load', () => {
                     ease: "power3.out",
                     delay: 0.8
                 });
-            }, 300); // Hold at 100% briefly before revealing site
+            }, 100); // Hold at 100% briefly before revealing site
         }
     });
 });
