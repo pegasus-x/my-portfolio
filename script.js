@@ -1,3 +1,4 @@
+
 gsap.registerPlugin(ScrollTrigger);
 
 // === SMOOTH SCROLL ===
@@ -81,8 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth GSAP counter for the percentage
     gsap.to(progress, {
         value: 100,
-        duration: 0.8, // Faster loading sequence
-        ease: "power3.inOut",
+        duration: 1.5, // Enough time to read the numbers
+        ease: "linear",
+        delay: 0.5, // Wait for loader to fade in before counting
         onUpdate: () => {
             const current = Math.floor(progress.value);
             if (loaderPercent) loaderPercent.innerText = current;
