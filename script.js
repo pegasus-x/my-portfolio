@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let targetGreeting = "Hello";
         if (percent <= 20) targetGreeting = "Hello";
-        else if (percent <= 40) targetGreeting = "Hola";
-        else if (percent <= 60) targetGreeting = "Ni Hao";
-        else if (percent <= 80) targetGreeting = "Namaste";
+        else if (percent <= 40) targetGreeting = "Namaste";
+        else if (percent <= 60) targetGreeting = "Hola";
+        else if (percent <= 80) targetGreeting = "Ni Hao";
         else targetGreeting = "Konnichiwa";
 
         if (targetGreeting !== activeGreeting) {
