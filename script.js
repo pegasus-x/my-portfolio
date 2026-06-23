@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.2
     });
 
-    gsap.to("#loader-center", {
+    gsap.to(["#loader-center", "#loader-greeting-container"], {
         y: 0,
         opacity: 1,
         duration: 1.5,
@@ -78,6 +78,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let progress = { value: 0 };
+    let activeGreeting = "Hello";
+
+    function updateGreeting(percent) {
+        const greetingEl = document.getElementById('loader-greeting');
+        if (!greetingEl) return;
+
+        let targetGreeting = "Hello";
+        if (percent <= 20) targetGreeting = "Hello";
+        else if (percent <= 40) targetGreeting = "Hola";
+        else if (percent <= 60) targetGreeting = "Ni Hao";
+        else if (percent <= 80) targetGreeting = "Namaste";
+        else targetGreeting = "Konnichiwa";
+
+        if (targetGreeting !== activeGreeting) {
+            activeGreeting = targetGreeting;
+
+            gsap.killTweensOf(greetingEl);
+
+            gsap.to(greetingEl, {
+                opacity: 0,
+                y: -10,
+                duration: 0.15,
+                ease: "power2.in",
+                onComplete: () => {
+                    greetingEl.innerText = targetGreeting;
+                    gsap.set(greetingEl, { y: 10 });
+                    gsap.to(greetingEl, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.25,
+                        ease: "power2.out"
+                    });
+                }
+            });
+        }
+    }
 
     // Smooth GSAP counter for the percentage
     gsap.to(progress, {
@@ -89,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const current = Math.floor(progress.value);
             if (loaderPercent) loaderPercent.innerText = current;
             if (loaderBar) loaderBar.style.width = `${current}%`;
+            updateGreeting(current);
 
             // Dynamically update text based on progress
             if (loaderStatus) {

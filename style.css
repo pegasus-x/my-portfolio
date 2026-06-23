@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    @apply outline-none ring-2 ring-neon-orange ring-offset-4 ring-offset-slate-50 dark:ring-offset-black rounded-md;
+  }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain
+}
+
+.lenis-stopped {
+  overflow: hidden
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out
+}
+
+html:not(.dark) input:-webkit-autofill,
+html:not(.dark) textarea:-webkit-autofill {
+  -webkit-text-fill-color: #0f172a
+}
+
+html.dark input:-webkit-autofill,
+html.dark textarea:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px
+}
+
+::-webkit-scrollbar-track {
+  background: 0 0
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #12121a
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0)
+  }
+
+  100% {
+    transform: translateX(-100%)
+  }
+}
+
+.marquee-content {
+  animation: 20s linear infinite scroll
+}
+
+.marquee-content:hover {
+  animation-play-state: paused
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6c63ff
+}
+
+.btt-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: all !important
+}
+
+.hardware-accelerate {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden
+}
+
+.mega-text {
+  font-size: 18vw;
+  letter-spacing: -.06em
+}
+
+@media (min-width:768px) {
+  .mega-text {
+    font-size: 15vw
+  }
+}
+
+html:not(.dark) #hero-canvas {
+  opacity: .15
+}
+
+#backToTop {
+  z-index: 999 !important;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom)) !important;
+}
+
+@media (min-width: 768px) {
+  #backToTop {
+    bottom: calc(2rem + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+#loader-greeting {
+  font-family: 'Space Grotesk', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans Devanagari', 'Noto Sans', sans-serif !important;
+  font-size: clamp(3.2rem, 11vw, 6rem) !important;
+}
+
+@media (min-width: 768px) {
+  #loader-greeting {
+    font-size: 12rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #loader-greeting {
+    font-size: 15rem !important;
+  }
+}

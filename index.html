@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://unpkg.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans:wght@400;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="output.css">
@@ -53,12 +53,18 @@
         </div>
 
         <!-- Center Typographic Percentage -->
-        <div class="flex-1 flex items-center justify-center relative w-full overflow-hidden">
+        <div class="flex-1 flex flex-col items-center justify-center relative w-full overflow-hidden">
+            <!-- Multilingual Greeting -->
+            <div id="loader-greeting-container"
+                class="opacity-0 translate-y-4 mb-4 md:mb-6 z-10 flex items-center justify-center">
+                <span id="loader-greeting"
+                    class="font-clash font-bold text-[6rem] md:text-[12rem] lg:text-[15rem] leading-none text-slate-900 dark:text-white tracking-wider">Hello</span>
+            </div>
             <div class="relative flex items-end translate-y-8 opacity-0" id="loader-center">
                 <span id="loader-percent"
                     class="font-clash font-semibold text-[6rem] md:text-[12rem] lg:text-[15rem] leading-none text-slate-900 dark:text-white tracking-tighter">0</span>
                 <span
-                    class="font-mono text-xl md:text-3xl lg:text-4xl text-neon-orange mb-4 md:mb-8 lg:mb-10 ml-2 font-bold">%</span>
+                    class="font-mono text-3xl md:text-5xl lg:text-6xl text-neon-orange mb-4 md:mb-8 lg:mb-10 ml-2 md:ml-4 font-bold">%</span>
             </div>
         </div>
 
@@ -141,7 +147,8 @@
                     class="hidden md:inline-block text-white bg-slate-900 dark:text-black dark:bg-neon-orange px-6 py-2.5 hover:scale-105 hover:shadow-[0_0_20px_rgba(108,99,255,0.4)] dark:hover:shadow-[0_0_20px_rgba(108,99,255,0.6)] transition-all duration-300 font-bold rounded-full">
                     LET'S CHAT
                 </a>
-                <button class="block lg:hidden text-slate-900 dark:text-white p-2" onclick="openMenu()" aria-label="Open mobile menu">
+                <button class="block lg:hidden text-slate-900 dark:text-white p-2" onclick="openMenu()"
+                    aria-label="Open mobile menu">
                     <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16">
@@ -189,1098 +196,1123 @@
         <section id="top" aria-label="Hero"
             class="relative w-full min-h-screen flex items-center justify-center px-[5%] md:px-[10%] pt-24 pb-16 overflow-hidden bg-white dark:bg-transparent">
 
-        <!-- Light Mode Ambient Glows -->
-        <div
-            class="absolute top-[20%] left-[20%] w-[40rem] h-[40rem] bg-indigo-50/60 rounded-full blur-[120px] pointer-events-none z-0 dark:hidden">
-        </div>
-        <div
-            class="absolute bottom-[20%] right-[20%] w-[30rem] h-[30rem] bg-slate-100/50 rounded-full blur-[120px] pointer-events-none z-0 dark:hidden">
-        </div>
-
-        <!-- WebGL Canvas -->
-        <canvas id="hero-canvas" aria-hidden="true" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
-
-        <!-- Vignette for text readability -->
-        <div
-            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(255,255,255,0.8)_80%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_40%,#0A0A0F_80%)] pointer-events-none z-[1] transition-colors duration-500">
-        </div>
-
-        <div class="w-full z-10 max-w-5xl mx-auto text-center flex flex-col items-center relative">
-
-            <!-- Status badge -->
+            <!-- Light Mode Ambient Glows -->
             <div
-                class="reveal-fade flex items-center gap-4 px-4 py-2 rounded-full border border-slate-200/80 dark:border-white/5 bg-white/40 dark:bg-white/[0.02] backdrop-blur-md mb-8 text-[9px] font-mono tracking-widest text-slate-500 dark:text-zinc-400 select-none">
-                <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
-                    AVAILABLE FOR WORK</span>
-                <span class="w-[1px] h-3 bg-slate-300 dark:bg-white/10"></span>
-                <span class="flex items-center gap-1.5"><span
-                        class="w-1.5 h-1.5 rounded-full bg-neon-orange animate-pulse"></span> AWS CERTIFIED</span>
+                class="absolute top-[20%] left-[20%] w-[40rem] h-[40rem] bg-indigo-50/60 rounded-full blur-[120px] pointer-events-none z-0 dark:hidden">
+            </div>
+            <div
+                class="absolute bottom-[20%] right-[20%] w-[30rem] h-[30rem] bg-slate-100/50 rounded-full blur-[120px] pointer-events-none z-0 dark:hidden">
             </div>
 
-            <!-- Hero Title -->
-            <h1
-                class="font-clash font-extrabold tracking-tight text-slate-900 dark:text-white leading-[0.95] uppercase mb-8 w-full flex flex-col transition-colors duration-500 text-4xl md:text-6xl lg:text-7xl">
-                <div class="overflow-hidden pb-1">
-                    <span
-                        class="hero-title-line block font-mono text-xs md:text-sm tracking-[0.4em] font-semibold text-neon-orange uppercase mb-4">//
-                        Rati Ranjan Sendha • Pegasus</span>
-                </div>
-                <div class="overflow-hidden pb-2">
-                    <span class="hero-title-line block">FULL STACK DEVELOPER &</span>
-                </div>
-                <div class="overflow-hidden">
-                    <span
-                        class="hero-title-line block text-transparent bg-clip-text bg-gradient-to-r from-neon-orange via-accent-glow to-warm-gold pb-4">
-                        AI ENTHUSIAST
-                    </span>
-                </div>
-            </h1>
+            <!-- WebGL Canvas -->
+            <canvas id="hero-canvas" aria-hidden="true"
+                class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
 
-            <!-- Description -->
-            <p
-                class="text-base md:text-lg font-medium text-slate-600 dark:text-zinc-300 leading-relaxed max-w-2xl mb-10 reveal-fade delay-100 transition-colors duration-500">
-                Building AI-powered applications, real-time systems, and modern web experiences using
-                <span class="text-slate-900 dark:text-white font-bold">React, Next.js, Node.js, PostgreSQL,</span>
-                and modern <span class="text-slate-900 dark:text-white font-bold">AI technologies</span>.
-            </p>
-
-            <!-- CTA Buttons -->
+            <!-- Vignette for text readability -->
             <div
-                class="flex flex-wrap justify-center gap-4 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold reveal-fade delay-200">
-                <a href="#projects"
-                    class="px-8 py-4 bg-slate-900 dark:bg-neon-orange text-white dark:text-black hover:scale-105 hover:shadow-[0_10px_25px_rgba(108,99,255,0.25)] dark:hover:shadow-[0_0_25px_rgba(108,99,255,0.6)] transition-all duration-300 rounded-full">
-                    View Projects
-                </a>
-                <a href="Rati_Resume.pdf" target="_blank" rel="noopener noreferrer"
-                    class="px-8 py-4 border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-white/5 text-slate-900 dark:text-white hover:bg-white dark:hover:bg-white/10 hover:ring-indigo-300 dark:hover:border-neon-orange/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.1)] dark:hover:shadow-[0_0_15px_rgba(108,99,255,0.15)] transition-all duration-300 backdrop-blur-xl rounded-full">
-                    Download CV
-                </a>
+                class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(255,255,255,0.8)_80%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_40%,#0A0A0F_80%)] pointer-events-none z-[1] transition-colors duration-500">
             </div>
-        </div>
 
-        <!-- Scroll indicator (Interactive) -->
-        <a href="#projects"
-            class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10 reveal-fade delay-300 cursor-pointer group hover:-translate-y-2 transition-transform duration-300">
-            <span
-                class="font-mono text-[11px] font-bold text-slate-600 dark:text-zinc-300 uppercase tracking-[0.3em] group-hover:text-neon-orange transition-colors duration-300 drop-shadow-md">Scroll
-                to Explore</span>
-            <div
-                class="w-7 h-12 rounded-full border-2 border-slate-400 dark:border-white/30 group-hover:border-neon-orange flex justify-center p-2 transition-colors duration-300 bg-white/10 dark:bg-black/20 backdrop-blur-sm shadow-lg">
+            <div class="w-full z-10 max-w-5xl mx-auto text-center flex flex-col items-center relative">
+
+                <!-- Status badge -->
                 <div
-                    class="w-1.5 h-2.5 rounded-full bg-neon-orange animate-bounce group-hover:h-4 transition-all duration-300 shadow-[0_0_8px_rgba(108,99,255,0.8)]">
+                    class="reveal-fade flex items-center gap-4 px-4 py-2 rounded-full border border-slate-200/80 dark:border-white/5 bg-white/40 dark:bg-white/[0.02] backdrop-blur-md mb-8 text-[9px] font-mono tracking-widest text-slate-500 dark:text-zinc-400 select-none">
+                    <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                        AVAILABLE FOR WORK</span>
+                    <span class="w-[1px] h-3 bg-slate-300 dark:bg-white/10"></span>
+                    <span class="flex items-center gap-1.5"><span
+                            class="w-1.5 h-1.5 rounded-full bg-neon-orange animate-pulse"></span> AWS CERTIFIED</span>
                 </div>
-            </div>
-        </a>
-    </section>
 
-    <!-- Endless Marquee Banner -->
-    <div
-        class="w-full py-4 bg-neon-orange dark:bg-neon-orange/10 border-y border-neon-orange/30 overflow-hidden flex relative z-10 font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest text-white dark:text-neon-orange select-none transition-colors duration-500">
-        <div
-            class="marquee-content flex whitespace-nowrap min-w-full shrink-0 items-center gap-6 md:gap-10 px-3 md:px-5">
-            <span>•</span>
-            <span>AVAILABLE FOR FREELANCE</span>
-            <span>•</span>
-            <span>FULL STACK DEVELOPMENT</span>
-            <span>•</span>
-            <span>AI ARCHITECTURE</span>
-            <span>•</span>
-            <span>CLOUD DEPLOYMENTS</span>
-            <span>•</span>
-            <span>NEXT.JS & MERN</span>
-        </div>
-        <div class="marquee-content flex whitespace-nowrap min-w-full shrink-0 items-center gap-6 md:gap-10 px-3 md:px-5"
-            aria-hidden="true">
-            <span>•</span>
-            <span>AVAILABLE FOR FREELANCE</span>
-            <span>•</span>
-            <span>FULL STACK DEVELOPMENT</span>
-            <span>•</span>
-            <span>AI ARCHITECTURE</span>
-            <span>•</span>
-            <span>CLOUD DEPLOYMENTS</span>
-            <span>•</span>
-            <span>NEXT.JS & MERN</span>
-        </div>
-    </div>
-
-    <!-- Projects -->
-    <section id="projects" aria-labelledby="projects-heading"
-        class="w-full px-[5%] md:px-[10%] pt-32 pb-40 relative border-t border-slate-100 dark:border-white/5 bg-slate-50/50 dark:bg-black transition-colors duration-500">
-        <div class="max-w-7xl mx-auto mb-16 md:mb-24 text-center md:text-left reveal-fade">
-            <p class="text-neon-orange font-mono font-bold text-[11px] uppercase tracking-widest mb-4">// Selected Work
-            </p>
-            <h2 id="projects-heading"
-                class="text-5xl md:text-7xl lg:text-8xl font-clash font-semibold text-slate-900 dark:text-white leading-none tracking-tight transition-colors duration-500">
-                PROJECTS.</h2>
-        </div>
-
-        <div class="w-full max-w-6xl mx-auto flex flex-col gap-12 md:gap-20" id="cards-container">
-
-            <!-- Project Card 1: Pegasus AI -->
-            <div
-                class="project-stack-card sticky top-[10vh] md:top-[12vh] z-10 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row group transition-all duration-500 transform origin-top">
-                <div
-                    class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
-                    <div>
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-neon-orange/10 to-transparent border border-neon-orange/30 rounded-full mb-8">
-                            <span class="w-2 h-2 rounded-full bg-neon-orange animate-pulse"></span>
-                            <span
-                                class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">ACTIVE
-                                DEVELOPMENT</span>
-                        </div>
-                        <h3
-                            class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-neon-orange transition-colors">
-                            Pegasus AI</h3>
-                        <p
-                            class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
-                            Autonomous agentic developer assistant designed to solve complex codebase modifications and
-                            refactoring tasks.</p>
-                        <ul
-                            class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
-                            <li>Autonomous agentic execution loops for complex, multi-step file modifications.</li>
-                            <li>Semantic codebase understanding using vector database embeddings and context retrieval.
-                            </li>
-                            <li>Secure execution sandbox with a user-in-the-loop permission gateway for local
-                                environments.</li>
-                        </ul>
+                <!-- Hero Title -->
+                <h1
+                    class="font-clash font-extrabold tracking-tight text-slate-900 dark:text-white leading-[0.95] uppercase mb-8 w-full flex flex-col transition-colors duration-500 text-4xl md:text-6xl lg:text-7xl">
+                    <div class="overflow-hidden pb-1">
+                        <span
+                            class="hero-title-line block font-mono text-xs md:text-sm tracking-[0.4em] font-semibold text-neon-orange uppercase mb-4">//
+                            Rati Ranjan Sendha • Pegasus</span>
                     </div>
-                    <div class="mt-10">
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Next.js</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">OpenRouter</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">LangChain</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 mt-2">
-                            <a href="https://github.com/pegasus-x/pegasus-ai" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">
-                                GitHub
-                            </a>
-                        </div>
+                    <div class="overflow-hidden pb-2">
+                        <span class="hero-title-line block">FULL STACK DEVELOPER &</span>
                     </div>
-                </div>
+                    <div class="overflow-hidden">
+                        <span
+                            class="hero-title-line block text-transparent bg-clip-text bg-gradient-to-r from-neon-orange via-accent-glow to-warm-gold pb-4">
+                            AI ENTHUSIAST
+                        </span>
+                    </div>
+                </h1>
+
+                <!-- Description -->
+                <p
+                    class="text-base md:text-lg font-medium text-slate-600 dark:text-zinc-300 leading-relaxed max-w-2xl mb-10 reveal-fade delay-100 transition-colors duration-500">
+                    Building AI-powered applications, real-time systems, and modern web experiences using
+                    <span class="text-slate-900 dark:text-white font-bold">React, Next.js, Node.js, PostgreSQL,</span>
+                    and modern <span class="text-slate-900 dark:text-white font-bold">AI technologies</span>.
+                </p>
+
+                <!-- CTA Buttons -->
                 <div
-                    class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+                    class="flex flex-wrap justify-center gap-4 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold reveal-fade delay-200">
+                    <a href="#projects"
+                        class="px-8 py-4 bg-slate-900 dark:bg-neon-orange text-white dark:text-black hover:scale-105 hover:shadow-[0_10px_25px_rgba(108,99,255,0.25)] dark:hover:shadow-[0_0_25px_rgba(108,99,255,0.6)] transition-all duration-300 rounded-full">
+                        View Projects
+                    </a>
+                    <a href="Rati_Resume.pdf" target="_blank" rel="noopener noreferrer"
+                        class="px-8 py-4 border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-white/5 text-slate-900 dark:text-white hover:bg-white dark:hover:bg-white/10 hover:ring-indigo-300 dark:hover:border-neon-orange/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.1)] dark:hover:shadow-[0_0_15px_rgba(108,99,255,0.15)] transition-all duration-300 backdrop-blur-xl rounded-full">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll indicator (Interactive) -->
+            <a href="#projects"
+                class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10 reveal-fade delay-300 cursor-pointer group hover:-translate-y-2 transition-transform duration-300">
+                <span
+                    class="font-mono text-[11px] font-bold text-slate-600 dark:text-zinc-300 uppercase tracking-[0.3em] group-hover:text-neon-orange transition-colors duration-300 drop-shadow-md">Scroll
+                    to Explore</span>
+                <div
+                    class="w-7 h-12 rounded-full border-2 border-slate-400 dark:border-white/30 group-hover:border-neon-orange flex justify-center p-2 transition-colors duration-300 bg-white/10 dark:bg-black/20 backdrop-blur-sm shadow-lg">
                     <div
-                        class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
-                        <div
-                            class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
+                        class="w-1.5 h-2.5 rounded-full bg-neon-orange animate-bounce group-hover:h-4 transition-all duration-300 shadow-[0_0_8px_rgba(108,99,255,0.8)]">
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- Endless Marquee Banner -->
+        <div
+            class="w-full py-4 bg-neon-orange dark:bg-neon-orange/10 border-y border-neon-orange/30 overflow-hidden flex relative z-10 font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest text-white dark:text-neon-orange select-none transition-colors duration-500">
+            <div
+                class="marquee-content flex whitespace-nowrap min-w-full shrink-0 items-center gap-6 md:gap-10 px-3 md:px-5">
+                <span>•</span>
+                <span>AVAILABLE FOR FREELANCE</span>
+                <span>•</span>
+                <span>FULL STACK DEVELOPMENT</span>
+                <span>•</span>
+                <span>AI ARCHITECTURE</span>
+                <span>•</span>
+                <span>CLOUD DEPLOYMENTS</span>
+                <span>•</span>
+                <span>NEXT.JS & MERN</span>
+            </div>
+            <div class="marquee-content flex whitespace-nowrap min-w-full shrink-0 items-center gap-6 md:gap-10 px-3 md:px-5"
+                aria-hidden="true">
+                <span>•</span>
+                <span>AVAILABLE FOR FREELANCE</span>
+                <span>•</span>
+                <span>FULL STACK DEVELOPMENT</span>
+                <span>•</span>
+                <span>AI ARCHITECTURE</span>
+                <span>•</span>
+                <span>CLOUD DEPLOYMENTS</span>
+                <span>•</span>
+                <span>NEXT.JS & MERN</span>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <section id="projects" aria-labelledby="projects-heading"
+            class="w-full px-[5%] md:px-[10%] pt-32 pb-40 relative border-t border-slate-100 dark:border-white/5 bg-slate-50/50 dark:bg-black transition-colors duration-500">
+            <div class="max-w-7xl mx-auto mb-16 md:mb-24 text-center md:text-left reveal-fade">
+                <p class="text-neon-orange font-mono font-bold text-[11px] uppercase tracking-widest mb-4">// Selected
+                    Work
+                </p>
+                <h2 id="projects-heading"
+                    class="text-5xl md:text-7xl lg:text-8xl font-clash font-semibold text-slate-900 dark:text-white leading-none tracking-tight transition-colors duration-500">
+                    PROJECTS.</h2>
+            </div>
+
+            <div class="w-full max-w-6xl mx-auto flex flex-col gap-12 md:gap-20" id="cards-container">
+
+                <!-- Project Card 1: Pegasus AI -->
+                <div
+                    class="project-stack-card sticky top-[10vh] md:top-[12vh] z-10 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row group transition-all duration-500 transform origin-top">
+                    <div
+                        class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
+                        <div>
                             <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                        </div>
-                        <div
-                            class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
-                            <img src="images/pegasus_ai.webp" alt="Pegasus AI Preview" loading="lazy" decoding="async"
-                                class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
-                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
-                            <div
-                                class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
-                            </div>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-slate-200 to-white dark:from-white/10 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-neon-orange/10 to-transparent border border-neon-orange/30 rounded-full mb-8">
+                                <span class="w-2 h-2 rounded-full bg-neon-orange animate-pulse"></span>
                                 <span
-                                    class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest text-center leading-none drop-shadow-2xl uppercase">PEGASUS
-                                    AI</span>
-                                <span
-                                    class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">ACTIVE
+                                    class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">ACTIVE
                                     DEVELOPMENT</span>
                             </div>
+                            <h3
+                                class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-neon-orange transition-colors">
+                                Pegasus AI</h3>
+                            <p
+                                class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
+                                Autonomous agentic developer assistant designed to solve complex codebase modifications
+                                and
+                                refactoring tasks.</p>
+                            <ul
+                                class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
+                                <li>Autonomous agentic execution loops for complex, multi-step file modifications.</li>
+                                <li>Semantic codebase understanding using vector database embeddings and context
+                                    retrieval.
+                                </li>
+                                <li>Secure execution sandbox with a user-in-the-loop permission gateway for local
+                                    environments.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-10">
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Next.js</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">OpenRouter</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">LangChain</span>
+                            </div>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <a href="https://github.com/pegasus-x/pegasus-ai" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+                        <div
+                            class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
+                            <div
+                                class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                            </div>
+                            <div
+                                class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
+                                <img src="images/pegasus_ai.png" alt="Pegasus AI Preview" loading="lazy"
+                                    decoding="async"
+                                    class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
+                                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
+                                <div
+                                    class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-slate-200 to-white dark:from-white/10 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
+                                    <span
+                                        class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest text-center leading-none drop-shadow-2xl uppercase">PEGASUS
+                                        AI</span>
+                                    <span
+                                        class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">ACTIVE
+                                        DEVELOPMENT</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project Card 2: DentWise -->
+                <div
+                    class="project-stack-card sticky top-[12vh] md:top-[15vh] z-20 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row-reverse group transition-all duration-500 transform origin-top">
+                    <div
+                        class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-l border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
+                        <div>
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-neon-orange/10 to-transparent border border-neon-orange/30 rounded-full mb-8">
+                                <span class="w-2 h-2 rounded-full bg-neon-orange animate-pulse"></span>
+                                <span
+                                    class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">AI
+                                    Integration</span>
+                            </div>
+                            <h3
+                                class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-neon-orange transition-colors">
+                                DentWise</h3>
+                            <p
+                                class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
+                                AI Dental Assistant platform driving automated voice consultations and intelligent
+                                patient
+                                scheduling workflows.</p>
+                            <ul
+                                class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
+                                <li>Real-time, bidirectional voice streaming consultations integrated with ElevenLabs.
+                                </li>
+                                <li>Smart appointment scheduling engine with automated calendar conflict resolution.
+                                </li>
+                                <li>Robust multi-tenant user access control and secure sessions powered by Clerk.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-10">
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Next.js</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">PostgreSQL</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Prisma</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">ElevenLabs</span>
+                            </div>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <a href="https://dentwise-ai.sevalla.app/" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all">Live
+                                    Demo</a>
+                                <a href="https://github.com/pegasus-x/dentwise-ai" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+                        <div
+                            class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
+                            <div
+                                class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                            </div>
+                            <div
+                                class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
+                                <img src="images/dentwise.png" alt="DentWise Platform Preview" loading="lazy"
+                                    decoding="async"
+                                    class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
+                                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
+                                <div
+                                    class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-neon-orange/20 to-warm-gold/20 dark:from-neon-orange/30 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
+                                    <span
+                                        class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest drop-shadow-2xl uppercase">DENTWISE</span>
+                                    <span
+                                        class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">AI
+                                        SYSTEM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: AI Site Builder -->
+                <div
+                    class="project-stack-card sticky top-[14vh] md:top-[18vh] z-30 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row group transition-all duration-500 transform origin-top">
+                    <div
+                        class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
+                        <div>
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-warm-gold/10 to-transparent border border-warm-gold/30 rounded-full mb-8">
+                                <span class="w-2 h-2 rounded-full bg-warm-gold animate-pulse"></span>
+                                <span
+                                    class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">SaaS
+                                    Architecture</span>
+                            </div>
+                            <h3
+                                class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-warm-gold transition-colors">
+                                AI Site Builder</h3>
+                            <p
+                                class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
+                                Full-stack PERN SaaS platform generating responsive web layouts directly from natural
+                                language prompts.</p>
+                            <ul
+                                class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
+                                <li>High-performance code generation pipeline leveraging the OpenRouter API.</li>
+                                <li>Usage-based credit billing and secure subscription cycles powered by Stripe.</li>
+                                <li>Isolated, sandboxed iframe workspaces for real-time live preview rendering.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-10">
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">PERN
+                                    Stack</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">OpenRouter
+                                    AI</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Stripe</span>
+                            </div>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <a href="https://aisitebuilder.site/" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all">Live
+                                    Demo</a>
+                                <a href="https://github.com/pegasus-x/ai-site-builder" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+                        <div
+                            class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
+                            <div
+                                class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                            </div>
+                            <div
+                                class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
+                                <img src="images/sitebuilder.png" alt="AI Site Builder Preview" loading="lazy"
+                                    decoding="async"
+                                    class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
+                                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
+                                <div
+                                    class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-warm-gold/20 to-slate-200 dark:from-warm-gold/30 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
+                                    <span
+                                        class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest text-center leading-none drop-shadow-2xl uppercase">SITE
+                                        BUILDER</span>
+                                    <span
+                                        class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">GENERATOR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: Chat App -->
+                <div
+                    class="project-stack-card sticky top-[16vh] md:top-[21vh] z-40 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row-reverse group transition-all duration-500 transform origin-top">
+                    <div
+                        class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-l border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
+                        <div>
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-neon-orange/10 to-transparent border border-neon-orange/30 rounded-full mb-8">
+                                <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                                <span
+                                    class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">Real-Time
+                                    Sync</span>
+                            </div>
+                            <h3
+                                class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-neon-orange transition-colors">
+                                SyncTalk ChatApp</h3>
+                            <p
+                                class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
+                                Real-time collaboration suite featuring instant messaging, public channels, and rich
+                                media
+                                sharing. A completed project whose deployment is currently being improved.</p>
+                            <ul
+                                class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
+                                <li>Bidirectional WebSocket synchronization and messaging streams powered by Socket.io.
+                                </li>
+                                <li>Centralized Redux Toolkit state engine with offline-resilient action queueing.</li>
+                                <li>Real-time user presence indicators and low-latency state caches backed by Redis.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-10">
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">MERN
+                                    Stack</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Socket.io</span>
+                                <span
+                                    class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Redux</span>
+                            </div>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <a href="https://github.com/pegasus-x/chat-app" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+                        <div
+                            class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
+                            <div
+                                class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
+                                </div>
+                            </div>
+                            <div
+                                class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
+                                <img src="images/chatapp.png" alt="Chat App Preview" loading="lazy" decoding="async"
+                                    class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
+                                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
+                                <div
+                                    class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-accent-glow/20 to-blue-500/20 dark:from-accent-glow/30 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
+                                    <span
+                                        class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest text-center leading-none drop-shadow-2xl uppercase">SYNC
+                                        TALK</span>
+                                    <span
+                                        class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">COMMUNICATION</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             </div>
 
-            <!-- Project Card 2: DentWise -->
-            <div
-                class="project-stack-card sticky top-[12vh] md:top-[15vh] z-20 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row-reverse group transition-all duration-500 transform origin-top">
+            <!-- About / Skills Section -->
+            <div id="about"
+                class="w-full px-[5%] md:px-[10%] py-32 relative z-10 border-t border-slate-100 dark:border-white/5 bg-white dark:bg-transparent transition-colors duration-500">
                 <div
-                    class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-l border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
+                    class="max-w-7xl mx-auto mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 reveal-fade">
                     <div>
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-neon-orange/10 to-transparent border border-neon-orange/30 rounded-full mb-8">
-                            <span class="w-2 h-2 rounded-full bg-neon-orange animate-pulse"></span>
-                            <span
-                                class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">AI
-                                Integration</span>
-                        </div>
-                        <h3
-                            class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-neon-orange transition-colors">
-                            DentWise</h3>
-                        <p
-                            class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
-                            AI Dental Assistant platform driving automated voice consultations and intelligent patient
-                            scheduling workflows.</p>
-                        <ul
-                            class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
-                            <li>Real-time, bidirectional voice streaming consultations integrated with ElevenLabs.</li>
-                            <li>Smart appointment scheduling engine with automated calendar conflict resolution.</li>
-                            <li>Robust multi-tenant user access control and secure sessions powered by Clerk.</li>
-                        </ul>
+                        <p class="text-neon-orange font-mono text-[11px] font-bold uppercase tracking-widest mb-4">//
+                            About Me
+                        </p>
+                        <h2
+                            class="text-5xl md:text-7xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight transition-colors duration-500">
+                            WHO I AM.</h2>
                     </div>
-                    <div class="mt-10">
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Next.js</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">PostgreSQL</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Prisma</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">ElevenLabs</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 mt-2">
-                            <a href="https://dentwise-ai.sevalla.app/" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all">Live
-                                Demo</a>
-                            <a href="https://github.com/pegasus-x/dentwise-ai" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">GitHub</a>
-                        </div>
-                    </div>
+                    <p
+                        class="text-slate-600 dark:text-zinc-400 max-w-sm text-sm md:text-base leading-relaxed transition-colors duration-500">
+                        Fusing resilient backend systems with dynamic, cloud-native frontend architectures.</p>
                 </div>
-                <div
-                    class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+                    <!-- Card 1: Main Bio (Span 2x2) -->
                     <div
-                        class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
+                        class="md:col-span-2 md:row-span-2 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-dark-card/40 p-8 md:p-12 flex flex-col justify-between shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_50px_rgba(108,99,255,0.15)] transition-all duration-500 reveal-fade backdrop-blur-xl group relative overflow-hidden">
+                        <!-- Abstract Glow -->
                         <div
-                            class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
+                            class="absolute top-0 right-0 w-64 h-64 bg-neon-orange/10 dark:bg-neon-orange/20 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-50">
                         </div>
-                        <div
-                            class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
-                            <img src="images/dentwise.webp" alt="DentWise Platform Preview" loading="lazy"
-                                decoding="async"
-                                class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
-                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
-                            <div
-                                class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
-                            </div>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-neon-orange/20 to-warm-gold/20 dark:from-neon-orange/30 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
-                                <span
-                                    class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest drop-shadow-2xl uppercase">DENTWISE</span>
-                                <span
-                                    class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">AI
-                                    SYSTEM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Project Card 3: AI Site Builder -->
-            <div
-                class="project-stack-card sticky top-[14vh] md:top-[18vh] z-30 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row group transition-all duration-500 transform origin-top">
-                <div
-                    class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
-                    <div>
+                        <div class="relative z-10">
+                            <h3
+                                class="text-2xl md:text-4xl font-clash font-medium text-slate-900 dark:text-white mb-6 transition-colors duration-500 tracking-tight">
+                                FULL STACK DEVELOPER</h3>
+                            <div
+                                class="text-slate-600 dark:text-zinc-400 font-medium leading-relaxed space-y-6 text-sm md:text-base transition-colors duration-500">
+                                <p>I am a full-stack engineer and MCA graduate based in Odisha, India. I specialize in
+                                    building secure, high-performance web applications and robust integration loops for
+                                    modern
+                                    AI technologies. My core stack revolves around React, Next.js, Node.js, and
+                                    PostgreSQL.</p>
+                                <p>I focus on engineering user-centric software solutions, automating complex
+                                    deployments, and
+                                    designing resilient cloud environments with strict security parameters to deliver
+                                    production-ready digital products.</p>
+                            </div>
+                        </div>
                         <div
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-warm-gold/10 to-transparent border border-warm-gold/30 rounded-full mb-8">
-                            <span class="w-2 h-2 rounded-full bg-warm-gold animate-pulse"></span>
-                            <span
-                                class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">SaaS
-                                Architecture</span>
-                        </div>
-                        <h3
-                            class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-warm-gold transition-colors">
-                            AI Site Builder</h3>
-                        <p
-                            class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
-                            Full-stack PERN SaaS platform generating responsive web layouts directly from natural
-                            language prompts.</p>
-                        <ul
-                            class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
-                            <li>High-performance code generation pipeline leveraging the OpenRouter API.</li>
-                            <li>Usage-based credit billing and secure subscription cycles powered by Stripe.</li>
-                            <li>Isolated, sandboxed iframe workspaces for real-time live preview rendering.</li>
-                        </ul>
-                    </div>
-                    <div class="mt-10">
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">PERN
-                                Stack</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">OpenRouter
-                                AI</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Stripe</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 mt-2">
-                            <a href="https://aisitebuilder.site/" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all">Live
-                                Demo</a>
-                            <a href="https://github.com/pegasus-x/ai-site-builder" target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">GitHub</a>
+                            class="mt-10 pt-6 border-t border-slate-200/50 dark:border-white/10 flex items-center justify-between transition-colors duration-500 relative z-10">
+                            <div
+                                class="font-mono text-[10px] text-slate-700 dark:text-zinc-300 uppercase tracking-widest flex items-center gap-3 bg-slate-100/50 dark:bg-black/30 px-4 py-2 rounded-full border border-slate-200/50 dark:border-white/5 transition-colors duration-500 backdrop-blur-md">
+                                <span
+                                    class="w-2 h-2 bg-neon-orange rounded-full animate-pulse shadow-[0_0_10px_rgba(108,99,255,0.5)]"></span>
+                                LOC: BHUBANESWAR, IN
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div
-                    class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+
+                    <!-- Card 2: Specialization (Span 2x1) -->
                     <div
-                        class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
+                        class="md:col-span-2 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-dark-card/40 p-8 md:p-10 flex flex-col justify-center shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_50px_rgba(108,99,255,0.15)] transition-all duration-500 reveal-fade delay-100 backdrop-blur-xl group relative overflow-hidden">
+                        <!-- Abstract Glow -->
                         <div
-                            class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
+                            class="absolute bottom-0 left-0 w-48 h-48 bg-accent-glow/10 dark:bg-accent-glow/20 blur-[60px] rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-50">
                         </div>
-                        <div
-                            class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
-                            <img src="images/sitebuilder.webp" alt="AI Site Builder Preview" loading="lazy"
-                                decoding="async"
-                                class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
-                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
-                            <div
-                                class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
-                            </div>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-warm-gold/20 to-slate-200 dark:from-warm-gold/30 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
-                                <span
-                                    class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest text-center leading-none drop-shadow-2xl uppercase">SITE
-                                    BUILDER</span>
-                                <span
-                                    class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">GENERATOR</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Project Card 4: Chat App -->
-            <div
-                class="project-stack-card sticky top-[16vh] md:top-[21vh] z-40 w-full min-h-[65vh] rounded-[2rem] overflow-hidden bg-white border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.08)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] hover:border-slate-300 dark:hover:border-neon-orange/20 flex flex-col md:flex-row-reverse group transition-all duration-500 transform origin-top">
-                <div
-                    class="w-full md:w-5/12 p-6 md:p-14 flex flex-col justify-between border-b md:border-b-0 md:border-l border-slate-200 dark:border-white/5 relative bg-white dark:bg-none dark:bg-black transition-colors duration-500 order-2 md:order-none">
-                    <div>
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-neon-orange/10 to-transparent border border-neon-orange/30 rounded-full mb-8">
-                            <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                            <span
-                                class="font-mono font-bold text-[9px] text-slate-800 dark:text-white uppercase tracking-widest transition-colors duration-500">Real-Time
-                                Sync</span>
-                        </div>
-                        <h3
-                            class="text-4xl md:text-6xl font-clash font-semibold text-slate-900 dark:text-white mb-4 group-hover:text-neon-orange transition-colors">
-                            SyncTalk ChatApp</h3>
-                        <p
-                            class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium transition-colors duration-500">
-                            Real-time collaboration suite featuring instant messaging, public channels, and rich media
-                            sharing. A completed project whose deployment is currently being improved.</p>
-                        <ul
-                            class="text-slate-500 dark:text-zinc-500 text-xs md:text-sm leading-relaxed list-disc pl-4 space-y-2 font-mono transition-colors duration-500">
-                            <li>Bidirectional WebSocket synchronization and messaging streams powered by Socket.io.</li>
-                            <li>Centralized Redux Toolkit state engine with offline-resilient action queueing.</li>
-                            <li>Real-time user presence indicators and low-latency state caches backed by Redis.</li>
-                        </ul>
-                    </div>
-                    <div class="mt-10">
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">MERN
-                                Stack</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Socket.io</span>
-                            <span
-                                class="px-3 py-1.5 bg-white dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-full text-[9px] font-mono text-slate-600 dark:text-zinc-300 uppercase transition-colors duration-500">Redux</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 mt-2">
-                            <a href="https://github.com/pegasus-x/chat-app" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 transition-colors">GitHub</a>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4
+                                    class="font-mono text-[9px] text-slate-400 dark:text-zinc-500 uppercase tracking-widest transition-colors duration-500">
+                                    Focus Area</h4>
+                                <div
+                                    class="flex gap-2 font-mono text-[9px] uppercase tracking-wider text-slate-500 dark:text-zinc-400 select-none shrink-0">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">LLM</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">Agents</span>
+                                </div>
+                            </div>
+                            <h3
+                                class="text-2xl md:text-3xl font-clash font-semibold text-slate-900 dark:text-white transition-colors duration-500 mb-3">
+                                AGENTIC AI INTEGRATION</h3>
+                            <p
+                                class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed transition-colors duration-500">
+                                Building production-ready agentic systems utilizing vector databases, LLM tool-calling
+                                loops,
+                                and custom prompt routing architectures.</p>
                         </div>
                     </div>
-                </div>
-                <div
-                    class="w-full md:w-7/12 h-56 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-12 order-1 md:order-none">
+
+                    <!-- Card 3: Tech Stack Elements (Span 2x1) -->
                     <div
-                        class="w-full h-full relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0A0A0F] group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col">
+                        class="md:col-span-2 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-dark-card/40 p-8 md:p-10 flex flex-col justify-center shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_50px_rgba(108,99,255,0.15)] transition-all duration-500 reveal-fade delay-200 backdrop-blur-xl group relative overflow-hidden h-full">
+                        <!-- Abstract Glow -->
                         <div
-                            class="w-full px-4 py-3 flex items-center gap-2 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-black/60 relative z-10">
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-sm border border-black/10 dark:border-transparent">
-                            </div>
+                            class="absolute inset-0 bg-gradient-to-r from-transparent via-warm-gold/5 dark:via-warm-gold/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1.5s] ease-in-out pointer-events-none">
                         </div>
-                        <div
-                            class="flex-1 relative overflow-hidden bg-white dark:bg-black/40 flex items-center justify-center group/image">
-                            <img src="images/chatapp.webp" alt="Chat App Preview" loading="lazy" decoding="async"
-                                class="w-full h-full object-cover object-top scale-[1.01] transition-transform duration-700 group-hover/image:scale-[1.05] will-change-transform"
-                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
-                            <div
-                                class="absolute inset-0 w-[200%] h-full bg-gradient-to-tr from-transparent via-white/[0.15] dark:via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none">
-                            </div>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-accent-glow/20 to-blue-500/20 dark:from-accent-glow/30 dark:via-black dark:to-[#0A0A0F] flex flex-col items-center justify-center hidden">
+
+                        <div class="relative z-10 w-full h-full flex flex-col">
+                            <h4
+                                class="font-mono text-[9px] text-slate-400 dark:text-zinc-500 uppercase tracking-widest mb-6 transition-colors duration-500">
+                                Tech Stack</h4>
+
+                            <div class="flex flex-wrap gap-2 sm:gap-3 mt-4">
                                 <span
-                                    class="font-clash font-bold text-slate-900/30 dark:text-white/30 text-4xl md:text-5xl tracking-widest text-center leading-none drop-shadow-2xl uppercase">SYNC
-                                    TALK</span>
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#61DAFB]/50 hover:bg-[#61DAFB]/5 dark:hover:bg-[#61DAFB]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#61DAFB] shadow-[0_0_8px_rgba(97,218,251,0.5)] group-hover:animate-pulse"></span>
+                                    React & Next.js
+                                </span>
                                 <span
-                                    class="font-mono text-[9px] text-slate-600/50 dark:text-white/40 mt-3 tracking-[0.4em] uppercase">COMMUNICATION</span>
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#3178C6]/50 hover:bg-[#3178C6]/5 dark:hover:bg-[#3178C6]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#3178C6] shadow-[0_0_8px_rgba(49,120,198,0.5)] group-hover:animate-pulse"></span>
+                                    TypeScript
+                                </span>
+                                <span
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#339933]/50 hover:bg-[#339933]/5 dark:hover:bg-[#339933]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#339933] shadow-[0_0_8px_rgba(51,153,51,0.5)] group-hover:animate-pulse"></span>
+                                    Node.js
+                                </span>
+                                <span
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#4169E1]/50 hover:bg-[#4169E1]/5 dark:hover:bg-[#4169E1]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#4169E1] shadow-[0_0_8px_rgba(65,105,225,0.5)] group-hover:animate-pulse"></span>
+                                    PostgreSQL
+                                </span>
+                                <span
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#FF9900]/50 hover:bg-[#FF9900]/5 dark:hover:bg-[#FF9900]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#FF9900] shadow-[0_0_8px_rgba(255,153,0,0.5)] group-hover:animate-pulse"></span>
+                                    AWS Cloud
+                                </span>
+                                <span
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#A78BFA]/50 hover:bg-[#A78BFA]/5 dark:hover:bg-[#A78BFA]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#A78BFA] shadow-[0_0_8px_rgba(167,139,250,0.5)] group-hover:animate-pulse"></span>
+                                    LLMs & Agents
+                                </span>
+                                <span
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#06B6D4]/50 hover:bg-[#06B6D4]/5 dark:hover:bg-[#06B6D4]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#06B6D4] shadow-[0_0_8px_rgba(6,182,212,0.5)] group-hover:animate-pulse"></span>
+                                    Tailwind CSS
+                                </span>
+                                <span
+                                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#47A248]/50 hover:bg-[#47A248]/5 dark:hover:bg-[#47A248]/10 group">
+                                    <span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#47A248] shadow-[0_0_8px_rgba(71,162,72,0.5)] group-hover:animate-pulse"></span>
+                                    MongoDB & Prisma
+                                </span>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
+        </section>
 
-        </div>
-    </div>
+        <!-- Experience / Journey -->
+        <section id="experience" aria-labelledby="experience-heading"
+            class="w-full px-[5%] md:px-[10%] py-24 md:py-32 relative z-10 border-t border-slate-100 dark:border-white/5 bg-slate-50/40 dark:bg-black transition-colors duration-500">
+            <div class="max-w-4xl mx-auto reveal-fade">
+                <p class="text-neon-orange font-mono text-[11px] font-bold uppercase tracking-widest mb-4">// Career &
+                    Education</p>
+                <h2 id="experience-heading"
+                    class="text-5xl md:text-7xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight mb-20 transition-colors duration-500">
+                    THE JOURNEY.</h2>
 
-    <!-- About / Skills Section -->
-    <div id="about"
-        class="w-full px-[5%] md:px-[10%] py-32 relative z-10 border-t border-slate-100 dark:border-white/5 bg-white dark:bg-transparent transition-colors duration-500">
-        <div class="max-w-7xl mx-auto mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 reveal-fade">
-            <div>
-                <p class="text-neon-orange font-mono text-[11px] font-bold uppercase tracking-widest mb-4">// About Me
-                </p>
-                <h2
-                    class="text-5xl md:text-7xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight transition-colors duration-500">
-                    WHO I AM.</h2>
-            </div>
-            <p
-                class="text-slate-600 dark:text-zinc-400 max-w-sm text-sm md:text-base leading-relaxed transition-colors duration-500">
-                Fusing resilient backend systems with dynamic, cloud-native frontend architectures.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-
-            <!-- Card 1: Main Bio (Span 2x2) -->
-            <div
-                class="md:col-span-2 md:row-span-2 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-dark-card/40 p-8 md:p-12 flex flex-col justify-between shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_50px_rgba(108,99,255,0.15)] transition-all duration-500 reveal-fade backdrop-blur-xl group relative overflow-hidden">
-                <!-- Abstract Glow -->
                 <div
-                    class="absolute top-0 right-0 w-64 h-64 bg-neon-orange/10 dark:bg-neon-orange/20 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-50">
-                </div>
+                    class="relative border-l-2 border-slate-300 dark:border-zinc-800 ml-4 space-y-16 transition-colors duration-500">
 
-                <div class="relative z-10">
-                    <h3
-                        class="text-2xl md:text-4xl font-clash font-medium text-slate-900 dark:text-white mb-6 transition-colors duration-500 tracking-tight">
-                        FULL STACK DEVELOPER</h3>
+                    <!-- Timeline Item 1 -->
                     <div
-                        class="text-slate-600 dark:text-zinc-400 font-medium leading-relaxed space-y-6 text-sm md:text-base transition-colors duration-500">
-                        <p>I am a full-stack engineer and MCA graduate based in Odisha, India. I specialize in
-                            building secure, high-performance web applications and robust integration loops for modern
-                            AI technologies. My core stack revolves around React, Next.js, Node.js, and PostgreSQL.</p>
-                        <p>I focus on engineering user-centric software solutions, automating complex deployments, and
-                            designing resilient cloud environments with strict security parameters to deliver
-                            production-ready digital products.</p>
-                    </div>
-                </div>
-                <div
-                    class="mt-10 pt-6 border-t border-slate-200/50 dark:border-white/10 flex items-center justify-between transition-colors duration-500 relative z-10">
-                    <div
-                        class="font-mono text-[10px] text-slate-700 dark:text-zinc-300 uppercase tracking-widest flex items-center gap-3 bg-slate-100/50 dark:bg-black/30 px-4 py-2 rounded-full border border-slate-200/50 dark:border-white/5 transition-colors duration-500 backdrop-blur-md">
+                        class="relative pl-10 md:pl-16 reveal-fade p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
+                        <div
+                            class="absolute -left-[11px] top-10 w-5 h-5 rounded-full bg-neon-orange border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
+                        </div>
                         <span
-                            class="w-2 h-2 bg-neon-orange rounded-full animate-pulse shadow-[0_0_10px_rgba(108,99,255,0.5)]"></span>
-                        LOC: BHUBANESWAR, IN
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2: Specialization (Span 2x1) -->
-            <div
-                class="md:col-span-2 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-dark-card/40 p-8 md:p-10 flex flex-col justify-center shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_50px_rgba(108,99,255,0.15)] transition-all duration-500 reveal-fade delay-100 backdrop-blur-xl group relative overflow-hidden">
-                <!-- Abstract Glow -->
-                <div
-                    class="absolute bottom-0 left-0 w-48 h-48 bg-accent-glow/10 dark:bg-accent-glow/20 blur-[60px] rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-50">
-                </div>
-
-                <div class="relative z-10">
-                    <div class="flex items-center justify-between mb-4">
+                            class="font-mono text-[9px] font-bold text-neon-orange uppercase tracking-widest block mb-3 bg-neon-orange/10 w-max px-3.5 py-1 rounded-full border border-neon-orange/20 transition-colors duration-500">2026
+                            — Present</span>
+                        <h3
+                            class="text-3xl md:text-4xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 transition-colors duration-500">
+                            Building Pegasus AI</h3>
                         <h4
-                            class="font-mono text-[9px] text-slate-400 dark:text-zinc-500 uppercase tracking-widest transition-colors duration-500">
-                            Focus Area</h4>
+                            class="text-sm text-warm-gold dark:text-neon-orange font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
+                            Independent Project</h4>
+                        <p
+                            class="text-sm md:text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-2xl transition-colors duration-500">
+                            Architecting an advanced autonomous AI assistant capable of executing complex full-stack
+                            software refactoring and generation tasks.</p>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div
+                        class="relative pl-10 md:pl-16 reveal-fade delay-100 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
                         <div
-                            class="flex gap-2 font-mono text-[9px] uppercase tracking-wider text-slate-500 dark:text-zinc-400 select-none shrink-0">
-                            <span
-                                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">LLM</span>
-                            <span
-                                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">Agents</span>
+                            class="absolute -left-[11px] top-10 w-5 h-5 rounded-full bg-warm-gold border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
                         </div>
+                        <span
+                            class="font-mono text-[9px] font-bold text-warm-gold uppercase tracking-widest block mb-3 bg-warm-gold/10 w-max px-3.5 py-1 rounded-full border border-warm-gold/20 transition-colors duration-500">Aug
+                            2024 — Apr 2026</span>
+                        <h3
+                            class="text-3xl md:text-4xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 transition-colors duration-500">
+                            MCA Journey</h3>
+                        <h4
+                            class="text-sm text-slate-500 dark:text-zinc-500 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
+                            KIIT University</h4>
+                        <p
+                            class="text-sm md:text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-2xl transition-colors duration-500">
+                            Graduated with deepened expertise in cloud architectures, advanced data structures, and
+                            enterprise software
+                            engineering principles.</p>
                     </div>
-                    <h3
-                        class="text-2xl md:text-3xl font-clash font-semibold text-slate-900 dark:text-white transition-colors duration-500 mb-3">
-                        AGENTIC AI INTEGRATION</h3>
-                    <p
-                        class="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed transition-colors duration-500">
-                        Building production-ready agentic systems utilizing vector databases, LLM tool-calling loops,
-                        and custom prompt routing architectures.</p>
-                </div>
-            </div>
 
-            <!-- Card 3: Tech Stack Elements (Span 2x1) -->
-            <div
-                class="md:col-span-2 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-dark-card/40 p-8 md:p-10 flex flex-col justify-center shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_50px_rgba(108,99,255,0.15)] transition-all duration-500 reveal-fade delay-200 backdrop-blur-xl group relative overflow-hidden h-full">
-                <!-- Abstract Glow -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-transparent via-warm-gold/5 dark:via-warm-gold/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1.5s] ease-in-out pointer-events-none">
-                </div>
-
-                <div class="relative z-10 w-full h-full flex flex-col">
-                    <h4
-                        class="font-mono text-[9px] text-slate-400 dark:text-zinc-500 uppercase tracking-widest mb-6 transition-colors duration-500">
-                        Tech Stack</h4>
-
-                    <div class="flex flex-wrap gap-2 sm:gap-3 mt-4">
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#61DAFB]/50 hover:bg-[#61DAFB]/5 dark:hover:bg-[#61DAFB]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#61DAFB] shadow-[0_0_8px_rgba(97,218,251,0.5)] group-hover:animate-pulse"></span>
-                            React & Next.js
-                        </span>
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#3178C6]/50 hover:bg-[#3178C6]/5 dark:hover:bg-[#3178C6]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#3178C6] shadow-[0_0_8px_rgba(49,120,198,0.5)] group-hover:animate-pulse"></span>
-                            TypeScript
-                        </span>
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#339933]/50 hover:bg-[#339933]/5 dark:hover:bg-[#339933]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#339933] shadow-[0_0_8px_rgba(51,153,51,0.5)] group-hover:animate-pulse"></span>
-                            Node.js
-                        </span>
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#4169E1]/50 hover:bg-[#4169E1]/5 dark:hover:bg-[#4169E1]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#4169E1] shadow-[0_0_8px_rgba(65,105,225,0.5)] group-hover:animate-pulse"></span>
-                            PostgreSQL
-                        </span>
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#FF9900]/50 hover:bg-[#FF9900]/5 dark:hover:bg-[#FF9900]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#FF9900] shadow-[0_0_8px_rgba(255,153,0,0.5)] group-hover:animate-pulse"></span>
-                            AWS Cloud
-                        </span>
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#A78BFA]/50 hover:bg-[#A78BFA]/5 dark:hover:bg-[#A78BFA]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#A78BFA] shadow-[0_0_8px_rgba(167,139,250,0.5)] group-hover:animate-pulse"></span>
-                            LLMs & Agents
-                        </span>
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#06B6D4]/50 hover:bg-[#06B6D4]/5 dark:hover:bg-[#06B6D4]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#06B6D4] shadow-[0_0_8px_rgba(6,182,212,0.5)] group-hover:animate-pulse"></span>
-                            Tailwind CSS
-                        </span>
-                        <span
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-[10px] md:text-xs font-medium text-slate-700 dark:text-zinc-300 transition-colors hover:border-[#47A248]/50 hover:bg-[#47A248]/5 dark:hover:bg-[#47A248]/10 group">
-                            <span
-                                class="w-1.5 h-1.5 rounded-full bg-[#47A248] shadow-[0_0_8px_rgba(71,162,72,0.5)] group-hover:animate-pulse"></span>
-                            MongoDB & Prisma
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Experience / Journey -->
-    <section id="experience" aria-labelledby="experience-heading"
-        class="w-full px-[5%] md:px-[10%] py-24 md:py-32 relative z-10 border-t border-slate-100 dark:border-white/5 bg-slate-50/40 dark:bg-black transition-colors duration-500">
-        <div class="max-w-4xl mx-auto reveal-fade">
-            <p class="text-neon-orange font-mono text-[11px] font-bold uppercase tracking-widest mb-4">// Career &
-                Education</p>
-            <h2 id="experience-heading"
-                class="text-5xl md:text-7xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight mb-20 transition-colors duration-500">
-                THE JOURNEY.</h2>
-
-            <div
-                class="relative border-l-2 border-slate-300 dark:border-zinc-800 ml-4 space-y-16 transition-colors duration-500">
-
-                <!-- Timeline Item 1 -->
-                <div
-                    class="relative pl-10 md:pl-16 reveal-fade p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
+                    <!-- Timeline Item 3 -->
                     <div
-                        class="absolute -left-[11px] top-10 w-5 h-5 rounded-full bg-neon-orange border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
-                    </div>
-                    <span
-                        class="font-mono text-[9px] font-bold text-neon-orange uppercase tracking-widest block mb-3 bg-neon-orange/10 w-max px-3.5 py-1 rounded-full border border-neon-orange/20 transition-colors duration-500">2026
-                        — Present</span>
-                    <h3
-                        class="text-3xl md:text-4xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 transition-colors duration-500">
-                        Building Pegasus AI</h3>
-                    <h4
-                        class="text-sm text-warm-gold dark:text-neon-orange font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
-                        Independent Project</h4>
-                    <p
-                        class="text-sm md:text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-2xl transition-colors duration-500">
-                        Architecting an advanced autonomous AI assistant capable of executing complex full-stack
-                        software refactoring and generation tasks.</p>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div
-                    class="relative pl-10 md:pl-16 reveal-fade delay-100 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
-                    <div
-                        class="absolute -left-[11px] top-10 w-5 h-5 rounded-full bg-warm-gold border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
-                    </div>
-                    <span
-                        class="font-mono text-[9px] font-bold text-warm-gold uppercase tracking-widest block mb-3 bg-warm-gold/10 w-max px-3.5 py-1 rounded-full border border-warm-gold/20 transition-colors duration-500">Aug
-                        2024 — Apr 2026</span>
-                    <h3
-                        class="text-3xl md:text-4xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 transition-colors duration-500">
-                        MCA Journey</h3>
-                    <h4
-                        class="text-sm text-slate-500 dark:text-zinc-500 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
-                        KIIT University</h4>
-                    <p
-                        class="text-sm md:text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-2xl transition-colors duration-500">
-                        Graduated with deepened expertise in cloud architectures, advanced data structures, and
-                        enterprise software
-                        engineering principles.</p>
-                </div>
-
-                <!-- Timeline Item 3 -->
-                <div
-                    class="relative pl-10 md:pl-16 reveal-fade delay-200 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
-                    <div
-                        class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-accent-glow border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
-                    </div>
-                    <span
-                        class="font-mono text-[9px] font-bold text-accent-glow uppercase tracking-widest block mb-3 bg-accent-glow/10 w-max px-3.5 py-1 rounded-full border border-accent-glow/20 transition-colors duration-500">2024</span>
-                    <h3
-                        class="text-2xl md:text-3xl font-clash font-extrabold text-slate-700 dark:text-zinc-300 mb-2 transition-colors duration-500">
-                        AI & Full Stack Development</h3>
-                    <h4
-                        class="text-sm text-slate-600 dark:text-zinc-600 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
-                        Professional Focus</h4>
-                    <p
-                        class="text-sm md:text-base text-slate-500 dark:text-zinc-500 leading-relaxed max-w-2xl transition-colors duration-500">
-                        Transitioned focus towards building intelligent systems, integrating LLM workflows, vector
-                        databases, and SaaS platforms.</p>
-                </div>
-
-                <!-- Timeline Item 4 -->
-                <div
-                    class="relative pl-10 md:pl-16 reveal-fade delay-300 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
-                    <div
-                        class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-slate-400 dark:bg-zinc-600 border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
-                    </div>
-                    <span
-                        class="font-mono text-[9px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest block mb-3 bg-slate-100 dark:bg-white/5 w-max px-3.5 py-1 rounded-full border border-slate-200 dark:border-white/10 transition-colors duration-500">May
-                        2023 — Sep 2024</span>
-                    <h3
-                        class="text-xl md:text-2xl font-clash font-extrabold text-slate-600 dark:text-zinc-300 mb-2 transition-colors duration-500">
-                        Web Development Projects</h3>
-                    <h4
-                        class="text-sm text-slate-500 dark:text-zinc-500 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
-                        Industry Experience</h4>
-                    <p
-                        class="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed max-w-2xl transition-colors duration-500">
-                        Developed production-ready web applications, optimized databases, and collaborated in Agile,
-                        Git-driven environments at Thyo Softech & Techzex Software.</p>
-                </div>
-
-                <!-- Timeline Item 5 -->
-                <div
-                    class="relative pl-10 md:pl-16 reveal-fade delay-400 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
-                    <div
-                        class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-slate-300 dark:bg-zinc-700 border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
-                    </div>
-                    <span
-                        class="font-mono text-[9px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest block mb-3 bg-slate-100 dark:bg-white/5 w-max px-3.5 py-1 rounded-full border border-slate-200 dark:border-white/10 transition-colors duration-500">Nov
-                        2021 — Apr 2024</span>
-                    <h3
-                        class="text-xl md:text-2xl font-clash font-extrabold text-slate-600 dark:text-zinc-400 mb-2 transition-colors duration-500">
-                        BSc ITM Journey</h3>
-                    <h4
-                        class="text-sm text-slate-500 dark:text-zinc-600 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
-                        BJB Autonomous College</h4>
-                    <p
-                        class="text-sm text-slate-500 dark:text-zinc-500 leading-relaxed max-w-2xl transition-colors duration-500">
-                        Established foundational knowledge in programming, database management, and core web development
-                        methodologies.</p>
-                </div>
-
-                <!-- Timeline Item 6 -->
-                <div
-                    class="relative pl-10 md:pl-16 reveal-fade delay-500 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
-                    <div
-                        class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-slate-200 dark:bg-zinc-800 border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
-                    </div>
-                    <span
-                        class="font-mono text-[9px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest block mb-3 bg-slate-100 dark:bg-white/5 w-max px-3.5 py-1 rounded-full border border-slate-200 dark:border-white/10 transition-colors duration-500">2020</span>
-                    <h3
-                        class="text-xl md:text-2xl font-clash font-extrabold text-slate-600 dark:text-zinc-400 mb-2 transition-colors duration-500">
-                        Started Coding</h3>
-                    <h4
-                        class="text-sm text-slate-500 dark:text-zinc-600 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
-                        Self-Taught</h4>
-                    <p
-                        class="text-sm text-slate-500 dark:text-zinc-500 leading-relaxed max-w-2xl transition-colors duration-500">
-                        Wrote my first lines of code. Discovered a passion for technology and building things from
-                        scratch.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" aria-labelledby="certifications-heading"
-        class="w-full px-[5%] md:px-[10%] py-24 md:py-32 relative z-10 border-t border-slate-100 dark:border-white/5 bg-white dark:bg-black transition-colors duration-500">
-        <div class="max-w-4xl mx-auto reveal-fade">
-            <p class="text-neon-orange font-mono text-[11px] font-bold uppercase tracking-widest mb-4">// Credentials
-            </p>
-            <h2 id="certifications-heading"
-                class="text-5xl md:text-7xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight mb-20 transition-colors duration-500">
-                CERTIFICATIONS.</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Cert 1: AWS -->
-                <div
-                    class="p-8 rounded-3xl border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 backdrop-blur-xl dark:bg-dark-card/30 transition-all duration-300 hover:border-warm-gold/50 hover:shadow-[0_20px_40px_-15px_rgba(245,166,35,0.06)] dark:hover:shadow-[0_20px_50px_rgba(245,166,35,0.1)] hover:scale-[1.02] cursor-default group">
-                    <div class="flex items-start justify-between mb-6">
+                        class="relative pl-10 md:pl-16 reveal-fade delay-200 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
                         <div
-                            class="w-12 h-12 rounded-2xl bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center text-2xl">
-                            ☁️</div>
+                            class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-accent-glow border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
+                        </div>
                         <span
-                            class="font-mono text-[9px] font-bold text-warm-gold uppercase tracking-widest bg-warm-gold/10 px-3 py-1 rounded-full border border-warm-gold/20">AWS</span>
+                            class="font-mono text-[9px] font-bold text-accent-glow uppercase tracking-widest block mb-3 bg-accent-glow/10 w-max px-3.5 py-1 rounded-full border border-accent-glow/20 transition-colors duration-500">2024</span>
+                        <h3
+                            class="text-2xl md:text-3xl font-clash font-extrabold text-slate-700 dark:text-zinc-300 mb-2 transition-colors duration-500">
+                            AI & Full Stack Development</h3>
+                        <h4
+                            class="text-sm text-slate-600 dark:text-zinc-600 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
+                            Professional Focus</h4>
+                        <p
+                            class="text-sm md:text-base text-slate-500 dark:text-zinc-500 leading-relaxed max-w-2xl transition-colors duration-500">
+                            Transitioned focus towards building intelligent systems, integrating LLM workflows, vector
+                            databases, and SaaS platforms.</p>
                     </div>
-                    <h3
-                        class="text-xl font-clash font-bold text-slate-900 dark:text-white mb-2 transition-colors group-hover:text-warm-gold">
-                        AWS Academy Graduate - Cloud Architecting</h3>
-                    <p class="text-[10px] text-slate-500 dark:text-zinc-400 mb-6 font-mono font-medium">ISSUED BY AWS
-                        ACADEMY • ACTIVE BADGE</p>
-                    <a href="https://www.credly.com/badges/e7e2dc0c-08de-448b-b4aa-50b686a14a48" target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 text-xs font-bold font-mono text-warm-gold hover:text-white hover:bg-warm-gold/80 border border-warm-gold/30 hover:border-transparent px-5 py-2.5 rounded-full bg-warm-gold/5 transition-all duration-300">
-                        VERIFY BADGE
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                            </path>
-                        </svg>
-                    </a>
-                </div>
 
-                <!-- Cert 2: Red Hat -->
-                <div
-                    class="p-8 rounded-3xl border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 backdrop-blur-xl dark:bg-dark-card/30 transition-all duration-300 hover:border-red-500/50 hover:shadow-[0_20px_40px_-15px_rgba(239,68,68,0.06)] dark:hover:shadow-[0_20px_50px_rgba(239,68,68,0.1)] hover:scale-[1.02] cursor-default group">
-                    <div class="flex items-start justify-between mb-6">
+                    <!-- Timeline Item 4 -->
+                    <div
+                        class="relative pl-10 md:pl-16 reveal-fade delay-300 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
                         <div
-                            class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-2xl">
-                            🎩</div>
+                            class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-slate-400 dark:bg-zinc-600 border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
+                        </div>
                         <span
-                            class="font-mono text-[9px] font-bold text-red-500 uppercase tracking-widest bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">RED
-                            HAT</span>
+                            class="font-mono text-[9px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest block mb-3 bg-slate-100 dark:bg-white/5 w-max px-3.5 py-1 rounded-full border border-slate-200 dark:border-white/10 transition-colors duration-500">May
+                            2023 — Sep 2024</span>
+                        <h3
+                            class="text-xl md:text-2xl font-clash font-extrabold text-slate-600 dark:text-zinc-300 mb-2 transition-colors duration-500">
+                            Web Development Projects</h3>
+                        <h4
+                            class="text-sm text-slate-500 dark:text-zinc-500 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
+                            Industry Experience</h4>
+                        <p
+                            class="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed max-w-2xl transition-colors duration-500">
+                            Developed production-ready web applications, optimized databases, and collaborated in Agile,
+                            Git-driven environments at Thyo Softech & Techzex Software.</p>
                     </div>
-                    <h3
-                        class="text-xl font-clash font-bold text-slate-900 dark:text-white mb-2 transition-colors group-hover:text-red-500">
-                        Red Hat System Administration I (RH124) - Ver. 9.3</h3>
-                    <p class="text-[10px] text-slate-500 dark:text-zinc-400 mb-6 font-mono font-medium">RED HAT
-                        CERTIFIED TRAINING • ACTIVE BADGE</p>
-                    <a href="https://www.credly.com/badges/41cd6cc0-a01b-45e2-8c63-3032950f4bc6" target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 text-xs font-bold font-mono text-red-500 hover:text-white hover:bg-red-500/80 border border-red-500/30 hover:border-transparent px-5 py-2.5 rounded-full bg-red-500/5 transition-all duration-300">
-                        VERIFY BADGE
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                            </path>
-                        </svg>
-                    </a>
+
+                    <!-- Timeline Item 5 -->
+                    <div
+                        class="relative pl-10 md:pl-16 reveal-fade delay-400 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
+                        <div
+                            class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-slate-300 dark:bg-zinc-700 border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
+                        </div>
+                        <span
+                            class="font-mono text-[9px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest block mb-3 bg-slate-100 dark:bg-white/5 w-max px-3.5 py-1 rounded-full border border-slate-200 dark:border-white/10 transition-colors duration-500">Nov
+                            2021 — Apr 2024</span>
+                        <h3
+                            class="text-xl md:text-2xl font-clash font-extrabold text-slate-600 dark:text-zinc-400 mb-2 transition-colors duration-500">
+                            BSc ITM Journey</h3>
+                        <h4
+                            class="text-sm text-slate-500 dark:text-zinc-600 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
+                            BJB Autonomous College</h4>
+                        <p
+                            class="text-sm text-slate-500 dark:text-zinc-500 leading-relaxed max-w-2xl transition-colors duration-500">
+                            Established foundational knowledge in programming, database management, and core web
+                            development
+                            methodologies.</p>
+                    </div>
+
+                    <!-- Timeline Item 6 -->
+                    <div
+                        class="relative pl-10 md:pl-16 reveal-fade delay-500 p-8 rounded-3xl border border-transparent hover:border-slate-200/60 dark:hover:border-white/5 ring-1 ring-transparent hover:ring-slate-900/5 dark:hover:ring-white/10 bg-transparent hover:bg-white dark:hover:bg-white/[0.02] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group cursor-default">
+                        <div
+                            class="absolute -left-[9px] top-10 w-4 h-4 rounded-full bg-slate-200 dark:bg-zinc-800 border-4 border-slate-50 dark:border-[#0A0A0F] transition-colors duration-500">
+                        </div>
+                        <span
+                            class="font-mono text-[9px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest block mb-3 bg-slate-100 dark:bg-white/5 w-max px-3.5 py-1 rounded-full border border-slate-200 dark:border-white/10 transition-colors duration-500">2020</span>
+                        <h3
+                            class="text-xl md:text-2xl font-clash font-extrabold text-slate-600 dark:text-zinc-400 mb-2 transition-colors duration-500">
+                            Started Coding</h3>
+                        <h4
+                            class="text-sm text-slate-500 dark:text-zinc-600 font-mono uppercase tracking-widest mb-4 font-bold transition-colors duration-500">
+                            Self-Taught</h4>
+                        <p
+                            class="text-sm text-slate-500 dark:text-zinc-500 leading-relaxed max-w-2xl transition-colors duration-500">
+                            Wrote my first lines of code. Discovered a passion for technology and building things from
+                            scratch.</p>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Impact / Stats Section -->
-    <section aria-label="Quick Stats"
-        class="w-full px-[5%] md:px-[10%] py-16 md:py-20 relative z-10 border-t border-slate-100 dark:border-white/5 bg-white dark:bg-none dark:bg-black/20 transition-colors duration-500 overflow-hidden">
-        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 reveal-fade">
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-neon-orange/0 via-neon-orange/5 to-warm-gold/0 dark:via-neon-orange/10 pointer-events-none rounded-[3rem] blur-xl">
-            </div>
-            <div
-                class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
-                <span
-                    class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-neon-orange transition-colors drop-shadow-sm">4+</span>
-                <span
-                    class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Major
-                    Projects</span>
-            </div>
-            <div
-                class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
-                <span
-                    class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-warm-gold transition-colors drop-shadow-sm">1.5+</span>
-                <span
-                    class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Years
-                    Exp</span>
-            </div>
-            <div
-                class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
-                <span
-                    class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-accent-glow transition-colors drop-shadow-sm">MCA</span>
-                <span
-                    class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Graduate</span>
-            </div>
-            <div
-                class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
-                <span
-                    class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-[#10B981] transition-colors drop-shadow-sm">Cloud</span>
-                <span
-                    class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Native</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Premium SaaS Resume Section -->
-    <section id="resume" aria-labelledby="resume-heading"
-        class="w-full px-[5%] md:px-[10%] py-24 relative z-10 border-t border-slate-100 dark:border-white/5 bg-indigo-50/20 dark:bg-dark-card/30 transition-colors duration-500 overflow-hidden">
-
-        <!-- Background Accents -->
-        <div
-            class="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-orange/5 dark:bg-neon-orange/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2">
-        </div>
-        <div
-            class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-warm-gold/5 dark:bg-warm-gold/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 translate-y-1/2">
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
-
-            <!-- Left Side: Typography & Copy -->
-            <div class="w-full md:w-1/2 reveal-fade">
-                <p
-                    class="text-neon-orange font-mono font-bold text-[11px] uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-neon-orange animate-pulse"></span>
-                    // Professional Profile
+        <!-- Certifications Section -->
+        <section id="certifications" aria-labelledby="certifications-heading"
+            class="w-full px-[5%] md:px-[10%] py-24 md:py-32 relative z-10 border-t border-slate-100 dark:border-white/5 bg-white dark:bg-black transition-colors duration-500">
+            <div class="max-w-4xl mx-auto reveal-fade">
+                <p class="text-neon-orange font-mono text-[11px] font-bold uppercase tracking-widest mb-4">//
+                    Credentials
                 </p>
-                <h2 id="resume-heading"
-                    class="text-5xl md:text-6xl lg:text-7xl font-clash font-semibold text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-6 transition-colors duration-500">
-                    UNCOVER THE <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-orange to-warm-gold">FULL
-                        PICTURE.</span>
-                </h2>
-                <p
-                    class="text-slate-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-8 max-w-lg font-medium transition-colors duration-500">
-                    Explore my comprehensive background, spanning full-stack development, cloud infrastructure, and AI
-                    engineering. Review my complete work history, academic achievements, and technical capabilities in
-                    one place.
-                </p>
+                <h2 id="certifications-heading"
+                    class="text-5xl md:text-7xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight mb-20 transition-colors duration-500">
+                    CERTIFICATIONS.</h2>
 
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="Rati_Resume.pdf" target="_blank" rel="noopener noreferrer"
-                        class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-mono text-[11px] font-bold uppercase tracking-widest rounded-full overflow-hidden hover:scale-105 hover:shadow-[0_10px_25px_rgba(108,99,255,0.25)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300">
-                        <span class="relative z-10 flex items-center gap-2">
-                            Download Resume
-                            <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Cert 1: AWS -->
+                    <div
+                        class="p-8 rounded-3xl border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 backdrop-blur-xl dark:bg-dark-card/30 transition-all duration-300 hover:border-warm-gold/50 hover:shadow-[0_20px_40px_-15px_rgba(245,166,35,0.06)] dark:hover:shadow-[0_20px_50px_rgba(245,166,35,0.1)] hover:scale-[1.02] cursor-default group">
+                        <div class="flex items-start justify-between mb-6">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center text-2xl">
+                                ☁️</div>
+                            <span
+                                class="font-mono text-[9px] font-bold text-warm-gold uppercase tracking-widest bg-warm-gold/10 px-3 py-1 rounded-full border border-warm-gold/20">AWS</span>
+                        </div>
+                        <h3
+                            class="text-xl font-clash font-bold text-slate-900 dark:text-white mb-2 transition-colors group-hover:text-warm-gold">
+                            AWS Academy Graduate - Cloud Architecting</h3>
+                        <p class="text-[10px] text-slate-500 dark:text-zinc-400 mb-6 font-mono font-medium">ISSUED BY
+                            AWS
+                            ACADEMY • ACTIVE BADGE</p>
+                        <a href="https://www.credly.com/badges/e7e2dc0c-08de-448b-b4aa-50b686a14a48" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-xs font-bold font-mono text-warm-gold hover:text-white hover:bg-warm-gold/80 border border-warm-gold/30 hover:border-transparent px-5 py-2.5 rounded-full bg-warm-gold/5 transition-all duration-300">
+                            VERIFY BADGE
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-3 3m0 0l-3-3m3 3V4"></path>
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                </path>
                             </svg>
-                        </span>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-neon-orange to-warm-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right Side: Glassmorphic Bento Presentation -->
-            <div class="w-full md:w-1/2 reveal-fade delay-100 relative">
-                <!-- Floating Elements -->
-                <div class="absolute -top-6 -right-6 w-24 h-24 bg-accent-glow/20 rounded-full blur-2xl animate-pulse">
-                </div>
-                <div
-                    class="absolute -bottom-10 -left-6 w-32 h-32 bg-neon-orange/20 rounded-full blur-3xl animate-pulse delay-700">
-                </div>
-
-                <div
-                    class="relative w-full rounded-[2.5rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-black/30 backdrop-blur-xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] group overflow-hidden">
-
-                    <!-- Top Bar -->
-                    <div
-                        class="flex justify-between items-center mb-10 pb-6 border-b border-slate-200/50 dark:border-white/10">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-neon-orange/10 flex items-center justify-center text-neon-orange">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-clash font-semibold text-slate-900 dark:text-white text-lg">
-                                    Rati_Resume.pdf</h4>
-                                <p
-                                    class="text-slate-500 dark:text-zinc-500 font-mono text-[9px] uppercase tracking-widest mt-0.5">
-                                    Updated: 2026</p>
-                            </div>
-                        </div>
-                        <div
-                            class="px-3 py-1 bg-[#10B981]/10 text-[#10B981] font-mono text-[9px] font-bold uppercase tracking-widest rounded-full border border-[#10B981]/20">
-                            Available
-                        </div>
+                        </a>
                     </div>
 
-                    <!-- Bento Grid Highlights -->
-                    <div class="grid grid-cols-2 gap-4">
-                        <div
-                            class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/5 hover:border-neon-orange/40 dark:hover:border-neon-orange/40 shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_8px_30px_rgba(108,99,255,0.05)] dark:hover:shadow-[0_8px_30px_rgba(108,99,255,0.1)] transition-all duration-300 group/card">
+                    <!-- Cert 2: Red Hat -->
+                    <div
+                        class="p-8 rounded-3xl border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 backdrop-blur-xl dark:bg-dark-card/30 transition-all duration-300 hover:border-red-500/50 hover:shadow-[0_20px_40px_-15px_rgba(239,68,68,0.06)] dark:hover:shadow-[0_20px_50px_rgba(239,68,68,0.1)] hover:scale-[1.02] cursor-default group">
+                        <div class="flex items-start justify-between mb-6">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-2xl">
+                                🎩</div>
                             <span
-                                class="block text-2xl font-clash font-bold text-slate-900 dark:text-white mb-1 group-hover/card:text-neon-orange transition-colors">1.5+</span>
-                            <span
-                                class="block text-[10px] font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest">Years
-                                Experience</span>
+                                class="font-mono text-[9px] font-bold text-red-500 uppercase tracking-widest bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">RED
+                                HAT</span>
                         </div>
+                        <h3
+                            class="text-xl font-clash font-bold text-slate-900 dark:text-white mb-2 transition-colors group-hover:text-red-500">
+                            Red Hat System Administration I (RH124) - Ver. 9.3</h3>
+                        <p class="text-[10px] text-slate-500 dark:text-zinc-400 mb-6 font-mono font-medium">RED HAT
+                            CERTIFIED TRAINING • ACTIVE BADGE</p>
+                        <a href="https://www.credly.com/badges/41cd6cc0-a01b-45e2-8c63-3032950f4bc6" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-xs font-bold font-mono text-red-500 hover:text-white hover:bg-red-500/80 border border-red-500/30 hover:border-transparent px-5 py-2.5 rounded-full bg-red-500/5 transition-all duration-300">
+                            VERIFY BADGE
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact / Stats Section -->
+        <section aria-label="Quick Stats"
+            class="w-full px-[5%] md:px-[10%] py-16 md:py-20 relative z-10 border-t border-slate-100 dark:border-white/5 bg-white dark:bg-none dark:bg-black/20 transition-colors duration-500 overflow-hidden">
+            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 reveal-fade">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-neon-orange/0 via-neon-orange/5 to-warm-gold/0 dark:via-neon-orange/10 pointer-events-none rounded-[3rem] blur-xl">
+                </div>
+                <div
+                    class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
+                    <span
+                        class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-neon-orange transition-colors drop-shadow-sm">4+</span>
+                    <span
+                        class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Major
+                        Projects</span>
+                </div>
+                <div
+                    class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
+                    <span
+                        class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-warm-gold transition-colors drop-shadow-sm">1.5+</span>
+                    <span
+                        class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Years
+                        Exp</span>
+                </div>
+                <div
+                    class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
+                    <span
+                        class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-accent-glow transition-colors drop-shadow-sm">MCA</span>
+                    <span
+                        class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Graduate</span>
+                </div>
+                <div
+                    class="flex flex-col items-center text-center group relative z-10 p-6 rounded-3xl hover:bg-white dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
+                    <span
+                        class="text-3xl md:text-5xl font-clash font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-[#10B981] transition-colors drop-shadow-sm">Cloud</span>
+                    <span
+                        class="font-mono text-[10px] md:text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-[0.2em] font-bold">Native</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium SaaS Resume Section -->
+        <section id="resume" aria-labelledby="resume-heading"
+            class="w-full px-[5%] md:px-[10%] py-24 relative z-10 border-t border-slate-100 dark:border-white/5 bg-indigo-50/20 dark:bg-dark-card/30 transition-colors duration-500 overflow-hidden">
+
+            <!-- Background Accents -->
+            <div
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-orange/5 dark:bg-neon-orange/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-warm-gold/5 dark:bg-warm-gold/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 translate-y-1/2">
+            </div>
+
+            <div
+                class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
+
+                <!-- Left Side: Typography & Copy -->
+                <div class="w-full md:w-1/2 reveal-fade">
+                    <p
+                        class="text-neon-orange font-mono font-bold text-[11px] uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-neon-orange animate-pulse"></span>
+                        // Professional Profile
+                    </p>
+                    <h2 id="resume-heading"
+                        class="text-5xl md:text-6xl lg:text-7xl font-clash font-semibold text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-6 transition-colors duration-500">
+                        UNCOVER THE <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-orange to-warm-gold">FULL
+                            PICTURE.</span>
+                    </h2>
+                    <p
+                        class="text-slate-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-8 max-w-lg font-medium transition-colors duration-500">
+                        Explore my comprehensive background, spanning full-stack development, cloud infrastructure, and
+                        AI
+                        engineering. Review my complete work history, academic achievements, and technical capabilities
+                        in
+                        one place.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="Rati_Resume.pdf" target="_blank" rel="noopener noreferrer"
+                            class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-mono text-[11px] font-bold uppercase tracking-widest rounded-full overflow-hidden hover:scale-105 hover:shadow-[0_10px_25px_rgba(108,99,255,0.25)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300">
+                            <span class="relative z-10 flex items-center gap-2">
+                                Download Resume
+                                <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-3 3m0 0l-3-3m3 3V4"></path>
+                                </svg>
+                            </span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-neon-orange to-warm-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Glassmorphic Bento Presentation -->
+                <div class="w-full md:w-1/2 reveal-fade delay-100 relative">
+                    <!-- Floating Elements -->
+                    <div
+                        class="absolute -top-6 -right-6 w-24 h-24 bg-accent-glow/20 rounded-full blur-2xl animate-pulse">
+                    </div>
+                    <div
+                        class="absolute -bottom-10 -left-6 w-32 h-32 bg-neon-orange/20 rounded-full blur-3xl animate-pulse delay-700">
+                    </div>
+
+                    <div
+                        class="relative w-full rounded-[2.5rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 bg-white/70 dark:bg-black/30 backdrop-blur-xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] group overflow-hidden">
+
+                        <!-- Top Bar -->
                         <div
-                            class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/5 hover:border-warm-gold/40 dark:hover:border-warm-gold/40 shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_8px_30px_rgba(245,166,35,0.05)] dark:hover:shadow-[0_8px_30px_rgba(245,166,35,0.1)] transition-all duration-300 group/card">
-                            <span
-                                class="block text-2xl font-clash font-bold text-slate-900 dark:text-white mb-1 group-hover/card:text-warm-gold transition-colors">MCA</span>
-                            <span
-                                class="block text-[10px] font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest">Master's
-                                Degree</span>
-                        </div>
-                        <div
-                            class="col-span-2 p-5 rounded-2xl bg-gradient-to-r from-neon-orange/5 to-transparent dark:from-neon-orange/10 border border-neon-orange/20 ring-1 ring-neon-orange/10 dark:ring-neon-orange/5 flex items-center justify-between group/full hover:shadow-[0_8px_30px_rgba(108,99,255,0.05)] dark:hover:shadow-[0_8px_30px_rgba(108,99,255,0.1)] transition-all duration-300">
-                            <div>
-                                <span
-                                    class="block text-lg font-clash font-bold text-slate-900 dark:text-white mb-1">Full
-                                    Stack & AI</span>
-                                <span
-                                    class="block text-[10px] font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest">Core
-                                    Competencies</span>
+                            class="flex justify-between items-center mb-10 pb-6 border-b border-slate-200/50 dark:border-white/10">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-neon-orange/10 flex items-center justify-center text-neon-orange">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-clash font-semibold text-slate-900 dark:text-white text-lg">
+                                        Rati_Resume.pdf</h4>
+                                    <p
+                                        class="text-slate-500 dark:text-zinc-500 font-mono text-[9px] uppercase tracking-widest mt-0.5">
+                                        Updated: 2026</p>
+                                </div>
                             </div>
                             <div
-                                class="w-10 h-10 rounded-full bg-white dark:bg-black/40 flex items-center justify-center border border-slate-200 dark:border-white/10 group-hover/full:scale-110 transition-transform">
-                                <svg class="w-5 h-5 text-neon-orange" fill="none" stroke="currentColor"
+                                class="px-3 py-1 bg-[#10B981]/10 text-[#10B981] font-mono text-[9px] font-bold uppercase tracking-widest rounded-full border border-[#10B981]/20">
+                                Available
+                            </div>
+                        </div>
+
+                        <!-- Bento Grid Highlights -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div
+                                class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/5 hover:border-neon-orange/40 dark:hover:border-neon-orange/40 shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_8px_30px_rgba(108,99,255,0.05)] dark:hover:shadow-[0_8px_30px_rgba(108,99,255,0.1)] transition-all duration-300 group/card">
+                                <span
+                                    class="block text-2xl font-clash font-bold text-slate-900 dark:text-white mb-1 group-hover/card:text-neon-orange transition-colors">1.5+</span>
+                                <span
+                                    class="block text-[10px] font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest">Years
+                                    Experience</span>
+                            </div>
+                            <div
+                                class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/5 hover:border-warm-gold/40 dark:hover:border-warm-gold/40 shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_8px_30px_rgba(245,166,35,0.05)] dark:hover:shadow-[0_8px_30px_rgba(245,166,35,0.1)] transition-all duration-300 group/card">
+                                <span
+                                    class="block text-2xl font-clash font-bold text-slate-900 dark:text-white mb-1 group-hover/card:text-warm-gold transition-colors">MCA</span>
+                                <span
+                                    class="block text-[10px] font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest">Master's
+                                    Degree</span>
+                            </div>
+                            <div
+                                class="col-span-2 p-5 rounded-2xl bg-gradient-to-r from-neon-orange/5 to-transparent dark:from-neon-orange/10 border border-neon-orange/20 ring-1 ring-neon-orange/10 dark:ring-neon-orange/5 flex items-center justify-between group/full hover:shadow-[0_8px_30px_rgba(108,99,255,0.05)] dark:hover:shadow-[0_8px_30px_rgba(108,99,255,0.1)] transition-all duration-300">
+                                <div>
+                                    <span
+                                        class="block text-lg font-clash font-bold text-slate-900 dark:text-white mb-1">Full
+                                        Stack & AI</span>
+                                    <span
+                                        class="block text-[10px] font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest">Core
+                                        Competencies</span>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-white dark:bg-black/40 flex items-center justify-center border border-slate-200 dark:border-white/10 group-hover/full:scale-110 transition-transform">
+                                    <svg class="w-5 h-5 text-neon-orange" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Contact -->
+            <section id="contact" aria-labelledby="contact-heading"
+                class="w-full px-[5%] md:px-[10%] py-24 md:py-32 flex flex-col lg:flex-row gap-16 relative border-t border-slate-100 dark:border-white/5 bg-white dark:bg-none dark:bg-black transition-colors duration-500">
+
+                <div class="lg:w-1/2 flex flex-col justify-center reveal-fade">
+                    <p class="text-neon-orange font-mono font-bold text-[11px] uppercase tracking-widest mb-4">// Get In
+                        Touch
+                    </p>
+                    <h2 id="contact-heading"
+                        class="text-6xl md:text-8xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight leading-[0.9] mb-8 transition-colors duration-500">
+                        LET'S <br> CONNECT.</h2>
+                    <p
+                        class="text-slate-600 dark:text-zinc-400 font-medium text-base md:text-lg max-w-md leading-relaxed mb-12 transition-colors duration-500">
+                        Whether you need a robust SaaS architecture, AI integration, or a full-stack digital product—I'm
+                        ready
+                        to engineer it.</p>
+
+                    <div
+                        class="flex flex-col gap-6 md:gap-8 font-mono font-bold text-xs text-slate-700 dark:text-zinc-300 uppercase tracking-widest transition-colors duration-500">
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-12 h-12 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shrink-0 shadow-sm transition-colors duration-500">
+                                <span aria-hidden="true">📍</span>
+                            </div>
+                            <span>Bhubaneswar, Odisha</span>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-12 h-12 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shrink-0 shadow-sm transition-colors duration-500">
+                                <span aria-hidden="true">📞</span>
+                            </div>
+                            <a href="tel:+919438112679"
+                                class="hover:text-neon-orange transition-colors">+91-9438112679</a>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-12 h-12 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shrink-0 shadow-sm transition-colors duration-500">
+                                <span aria-hidden="true">✉️</span>
+                            </div>
+                            <a href="mailto:ratiranjan905@gmail.com"
+                                class="hover:text-warm-gold transition-colors break-all">ratiranjan905@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 reveal-fade delay-100">
+                    <div
+                        class="w-full bg-white/70 backdrop-blur-xl dark:bg-dark-card/30 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] p-8 md:p-12 relative group transition-all duration-500 hover:ring-neon-orange/30 dark:hover:border-neon-orange/20">
+                        <form id="contact-form"
+                            class="w-full font-mono text-sm text-slate-700 dark:text-zinc-300 relative z-10 transition-colors duration-500">
+
+                            <div class="flex flex-col gap-8 md:gap-10 mb-8 md:mb-10">
+                                <div class="flex flex-col gap-3">
+                                    <label for="name"
+                                        class="text-slate-500 dark:text-zinc-400 font-bold text-[10px] uppercase tracking-widest transition-colors duration-500">Your
+                                        Name</label>
+                                    <input type="text" id="name" name="name" aria-required="true"
+                                        class="w-full bg-transparent border-b border-slate-300 dark:border-white/10 py-2 outline-none text-slate-900 dark:text-white focus:border-neon-orange transition-colors text-base placeholder-slate-400 dark:placeholder-zinc-400"
+                                        placeholder="John Doe" required>
+                                </div>
+                                <div class="flex flex-col gap-3">
+                                    <label for="email"
+                                        class="text-slate-500 dark:text-zinc-400 font-bold text-[10px] uppercase tracking-widest transition-colors duration-500">Email</label>
+                                    <input type="email" id="email" name="email" aria-required="true"
+                                        class="w-full bg-transparent border-b border-slate-300 dark:border-white/10 py-2 outline-none text-slate-900 dark:text-white focus:border-warm-gold transition-colors text-base placeholder-slate-400 dark:placeholder-zinc-400"
+                                        placeholder="john@company.com" required>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 mb-10 md:mb-12">
+                                <label for="message"
+                                    class="text-slate-500 dark:text-zinc-400 font-bold text-[10px] uppercase tracking-widest transition-colors duration-500">Message</label>
+                                <textarea rows="5" id="message" name="message" aria-required="true"
+                                    class="w-full bg-white/50 dark:bg-black/30 border border-slate-200/80 dark:border-white/10 ring-1 ring-slate-900/5 dark:ring-0 p-5 outline-none text-slate-900 dark:text-white focus:border-neon-orange transition-colors resize-none rounded-xl text-base placeholder-slate-400 dark:placeholder-zinc-400"
+                                    placeholder="Tell me about your project..." required></textarea>
+                            </div>
+
+                            <button id="submit-btn" type="submit"
+                                class="w-full py-5 bg-gradient-to-r from-neon-orange to-warm-gold text-white hover:scale-[1.02] transition-all duration-300 rounded-xl uppercase tracking-widest font-bold text-xs flex justify-center items-center gap-3">
+                                <span id="btn-text">Send Message</span>
+                                <svg id="btn-icon" aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
-                            </div>
-                        </div>
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-heading"
-        class="w-full px-[5%] md:px-[10%] py-24 md:py-32 flex flex-col lg:flex-row gap-16 relative border-t border-slate-100 dark:border-white/5 bg-white dark:bg-none dark:bg-black transition-colors duration-500">
-
-        <div class="lg:w-1/2 flex flex-col justify-center reveal-fade">
-            <p class="text-neon-orange font-mono font-bold text-[11px] uppercase tracking-widest mb-4">// Get In Touch
-            </p>
-            <h2 id="contact-heading"
-                class="text-6xl md:text-8xl font-clash font-semibold text-slate-900 dark:text-white tracking-tight leading-[0.9] mb-8 transition-colors duration-500">
-                LET'S <br> CONNECT.</h2>
-            <p
-                class="text-slate-600 dark:text-zinc-400 font-medium text-base md:text-lg max-w-md leading-relaxed mb-12 transition-colors duration-500">
-                Whether you need a robust SaaS architecture, AI integration, or a full-stack digital product—I'm ready
-                to engineer it.</p>
-
-            <div
-                class="flex flex-col gap-6 md:gap-8 font-mono font-bold text-xs text-slate-700 dark:text-zinc-300 uppercase tracking-widest transition-colors duration-500">
-                <div class="flex items-center gap-5">
-                    <div
-                        class="w-12 h-12 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shrink-0 shadow-sm transition-colors duration-500">
-                        <span aria-hidden="true">📍</span></div>
-                    <span>Bhubaneswar, Odisha</span>
-                </div>
-                <div class="flex items-center gap-5">
-                    <div
-                        class="w-12 h-12 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shrink-0 shadow-sm transition-colors duration-500">
-                        <span aria-hidden="true">📞</span></div>
-                    <a href="tel:+919438112679" class="hover:text-neon-orange transition-colors">+91-9438112679</a>
-                </div>
-                <div class="flex items-center gap-5">
-                    <div
-                        class="w-12 h-12 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 shrink-0 shadow-sm transition-colors duration-500">
-                        <span aria-hidden="true">✉️</span></div>
-                    <a href="mailto:ratiranjan905@gmail.com"
-                        class="hover:text-warm-gold transition-colors break-all">ratiranjan905@gmail.com</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="lg:w-1/2 reveal-fade delay-100">
-            <div
-                class="w-full bg-white/70 backdrop-blur-xl dark:bg-dark-card/30 rounded-[2rem] border border-slate-200/50 dark:border-white/5 ring-1 ring-slate-900/5 dark:ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_-15px_rgba(108,99,255,0.06)] dark:hover:shadow-[0_30px_60px_rgba(108,99,255,0.1)] p-8 md:p-12 relative group transition-all duration-500 hover:ring-neon-orange/30 dark:hover:border-neon-orange/20">
-                <form id="contact-form"
-                    class="w-full font-mono text-sm text-slate-700 dark:text-zinc-300 relative z-10 transition-colors duration-500">
-
-                    <div class="flex flex-col gap-8 md:gap-10 mb-8 md:mb-10">
-                        <div class="flex flex-col gap-3">
-                            <label for="name"
-                                class="text-slate-500 dark:text-zinc-400 font-bold text-[10px] uppercase tracking-widest transition-colors duration-500">Your
-                                Name</label>
-                            <input type="text" id="name" name="name" aria-required="true"
-                                class="w-full bg-transparent border-b border-slate-300 dark:border-white/10 py-2 outline-none text-slate-900 dark:text-white focus:border-neon-orange transition-colors text-base placeholder-slate-400 dark:placeholder-zinc-400"
-                                placeholder="John Doe" required>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <label for="email"
-                                class="text-slate-500 dark:text-zinc-400 font-bold text-[10px] uppercase tracking-widest transition-colors duration-500">Email</label>
-                            <input type="email" id="email" name="email" aria-required="true"
-                                class="w-full bg-transparent border-b border-slate-300 dark:border-white/10 py-2 outline-none text-slate-900 dark:text-white focus:border-warm-gold transition-colors text-base placeholder-slate-400 dark:placeholder-zinc-400"
-                                placeholder="john@company.com" required>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 mb-10 md:mb-12">
-                        <label for="message"
-                            class="text-slate-500 dark:text-zinc-400 font-bold text-[10px] uppercase tracking-widest transition-colors duration-500">Message</label>
-                        <textarea rows="5" id="message" name="message" aria-required="true"
-                            class="w-full bg-white/50 dark:bg-black/30 border border-slate-200/80 dark:border-white/10 ring-1 ring-slate-900/5 dark:ring-0 p-5 outline-none text-slate-900 dark:text-white focus:border-neon-orange transition-colors resize-none rounded-xl text-base placeholder-slate-400 dark:placeholder-zinc-400"
-                            placeholder="Tell me about your project..." required></textarea>
-                    </div>
-
-                    <button id="submit-btn" type="submit"
-                        class="w-full py-5 bg-gradient-to-r from-neon-orange to-warm-gold text-white hover:scale-[1.02] transition-all duration-300 rounded-xl uppercase tracking-widest font-bold text-xs flex justify-center items-center gap-3">
-                        <span id="btn-text">Send Message</span>
-                        <svg id="btn-icon" aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Back To Top -->
-    <button id="backToTop" aria-label="Scroll to top"
-        class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[90] w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-900 dark:bg-white/10 backdrop-blur-md text-white flex items-center justify-center shadow-lg opacity-0 translate-y-10 transition-all duration-500 pointer-events-none hover:bg-neon-orange hover:scale-110 border border-transparent dark:border-white/20">
-        <svg class="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-        </svg>
-    </button>
+            </section>
 
     </main>
 
@@ -1461,7 +1493,8 @@
 
             <!-- Right Side: Minimal Social SVGs -->
             <div class="flex items-center gap-5 text-slate-400 dark:text-zinc-500">
-                <a href="https://github.com/pegasus-x" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"
+                <a href="https://github.com/pegasus-x" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub Profile"
                     class="hover:text-slate-900 dark:hover:text-white transition-colors hover:-translate-y-1 transform duration-300">
                     <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -1495,6 +1528,14 @@
 
         </div>
     </footer>
+
+    <!-- Back To Top -->
+    <button id="backToTop" aria-label="Scroll to top"
+        class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[90] w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-900 dark:bg-white/10 backdrop-blur-md text-white flex items-center justify-center shadow-lg opacity-0 translate-y-10 transition-all duration-500 pointer-events-none hover:bg-neon-orange hover:scale-110 border border-transparent dark:border-white/20">
+        <svg class="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
