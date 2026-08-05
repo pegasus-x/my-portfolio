@@ -6,7 +6,7 @@ Built with a focus on performance, responsive design, smooth interactions, and a
 
 ## 🌐 Live Demo
 
-**Portfolio:** https://pegasusportfolio.online
+**Portfolio:** https://pegasusportfolio.vercel.app/
 
 ## 👨‍💻 About
 
