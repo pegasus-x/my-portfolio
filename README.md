@@ -97,7 +97,7 @@ Open `index.html` in your browser or run the project using a local development s
 
 ## 📬 Contact
 
-* Portfolio: https://pegasusportfolio.online
+* Portfolio: https://pegasusportfolio.vercel.app/
 * GitHub: https://github.com/pegasus-x
 * LinkedIn: https://www.linkedin.com/in/rati-ranjan-sendha-710a42260/
 * Email: ratiranjan905@gmail.com
